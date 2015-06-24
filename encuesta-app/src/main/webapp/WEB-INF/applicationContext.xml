@@ -62,5 +62,4 @@
              <ws:service bean="#encuesta"/>
          </wss:service>        
      </wss:binding>-->
-   <bean name="user" class="org.encuesta.controllers.MainController"/>
 </beans>

@@ -15,22 +15,10 @@
 </head>
 <body>
 <h1 class="text-center"> USUARIOS </h1>
-
-<form:form commandName="user">
-
-<form:input path="username" /> <!--  path="username" commandName="username"--><br><br>
-
-
-<input type="submit" value="BUSCAR" />
-<br><br>
-
 <table class="table table-hover" border="1">
 
 <tr><td style="width: 150px; "> USERNAME</td><td style="width: 156px; "> PASSWORD</td>
 <td style="width: 123px; "> NAME</td><td style="width: 136px; "> ENABLED</td></tr>
-<%
-
- %>
 <c:forEach items="${users}" var="us">
 <tr><td><c:out value="${us.username}"/></td> 
 <td><c:out value="${us.password}"/></td> 
@@ -39,7 +27,7 @@
 
 </c:forEach>
 </table>
-</form:form>
+
 
 
 <!--  <table class="table table-hover" border="1">
