@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>USERS</title>
+</head>
+<body>
+<h3> USUARIOS ELIMINADOS</h3>
+
+
+<c:forEach items="${user_eliminados}" var="us">
+<p>
+<c:out value="${us.id_eliminado}"/>
+<c:out value="${us.username}"/>
+<c:out value="${us.password}"/>
+<c:out value="${us.name}"/>
+<c:out value="${us.enabled}"/>
+<c:out value="${us.fecha_eliminacion}"/>
+<c:out value="${us.eliminado_por}"/>
+</p>
+</c:forEach>
+
+<form action=<c:url value="index.htm"/>>
+<input type="submit" value="REGRESAR" >
+</form>
+</body>
+</html>
