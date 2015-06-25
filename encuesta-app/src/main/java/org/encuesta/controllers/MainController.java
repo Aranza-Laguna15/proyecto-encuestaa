@@ -61,14 +61,6 @@ public class MainController {
 		model.addAttribute("user_nuevos",usuarios);		
 		return "usersNew";
 	}
-	
-	@RequestMapping(method = RequestMethod.POST)
-	 public String findUserbyUsername(@RequestParam (value="nombre",required=true)String nombre, Model model){
-		System.out.println("username : "+nombre);
-		System.out.println("usuarios buscado: "+uS.getUsuarioNombre(nombre));
-		model.addAttribute("users",uS.getUsuarioNombre(nombre));
-		return "index";
-	 }
 }
 
 /*

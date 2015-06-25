@@ -6,54 +6,33 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>ENCUESTA APP</title>
-<link href="/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="/bootstrap-3.3.4-dist/css/bootstrap.min.css" >
+<link href="/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
 </head>
-<body>
-<h1 class="text-center"> USUARIOS </h1>
-<table class="table table-hover" border="1">
-
-<tr><td style="width: 150px; "> USERNAME</td><td style="width: 156px; "> PASSWORD</td>
-<td style="width: 123px; "> NAME</td><td style="width: 136px; "> ENABLED</td></tr>
-<c:forEach items="${users}" var="us">
-<tr><td><c:out value="${us.username}"/></td> 
-<td><c:out value="${us.password}"/></td> 
-<td><c:out value="${us.name}"/></td> 
-<td><c:out value="${us.enabled}"/></td></tr>
-
-</c:forEach>
-</table>
-
-
-
-<!--  <table class="table table-hover" border="1">
-<tr><td style="width: 150px; "> USERNAME</td><td style="width: 156px; "> PASSWORD</td>
-<td style="width: 123px; "> NAME</td><td style="width: 136px; "> ENABLED</td></tr>
-<c:forEach items="${users}" var="us">
-<tr><td><c:out value="${us.username}"/></td> 
-<td><c:out value="${us.password}"/></td> 
-<td><c:out value="${us.name}"/></td> 
-<td><c:out value="${us.enabled}"/></td></tr>
-
-</c:forEach>
-</table>-->
+<body role="document">
+<h1 class="text-center"> BIENVENIDO </h1>
+<div class="page-header">
 <form action=<c:url value="usersDel.htm"/>>
-<input type="submit" value="USERS DELETE"/>
-</form>
+<button type="submit" class="btn btn-lg btn-info"/>USERS DELETE</button>
+</form> 
 <form action=<c:url value="usersEdit.htm"/>>
 <input type="submit" value="USERS EDITADOS">
 </form>
 <form action=<c:url value="usersNew.htm"/>>
 <input type="submit" value="USERS NUEVOS"/>
 </form>
-
+<form action=<c:url value="findbyUser.htm"/>>
+<input type="submit" value="FIND BY USER"/>
+</form>
+</div>
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
- <script src="http://code.jquery.com/jquery.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

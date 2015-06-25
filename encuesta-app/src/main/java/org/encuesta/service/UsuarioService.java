@@ -72,12 +72,13 @@ public class UsuarioService {
  * 
  */
 	@Transactional
-	public Usuario getUsuarioNombre(String username){
-		return this.usuarioDao.getNombre(username);
+	public void setUsuarioNombre(String username){
+		this.usuarioDao.setNombre(username);
 	}
 	
-	public void setUsuarioDao(UsuarioDao usuarioDao) {
-		this.usuarioDao = usuarioDao;
+	public List<Usuario> getListaEncontrado() {
+		return usuarioDao.getlistaEncontrados();
+		
 	}
 
 	

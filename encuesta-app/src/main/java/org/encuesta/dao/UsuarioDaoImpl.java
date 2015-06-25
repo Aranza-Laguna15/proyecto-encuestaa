@@ -1,5 +1,6 @@
 package org.encuesta.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -11,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository(value="usuarioDao")
 public class UsuarioDaoImpl implements UsuarioDao{
-
+public List<Usuario> result;
 	private EntityManager em;
 	@PersistenceContext
 	public void setEm(EntityManager em) {
@@ -42,18 +43,10 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	 @SuppressWarnings("unchecked")
 	public Usuario findUsuario(String username, String pwd) {
 		try{
-		List<Usuario> result= (List<Usuario>) em.createQuery("SELECT us FROM Usuario us WHERE us.username=:user AND us.password=:pwd AND us.enabled=true ")
+		List<Usuario> resultr= (List<Usuario>) em.createQuery("SELECT us FROM Usuario us WHERE us.username=:user AND us.password=:pwd AND us.enabled=true ")
 			.setParameter("user", username)
 			.setParameter("pwd", pwd).getSingleResult();
-		 return (Usuario) result;
-		}catch(Exception ex){}
-		return null;
-	}
-
-	public Usuario findUsuario(String username) {
-		try{
-			return (Usuario)em.createQuery("SELECT u FROM Usuario u WHERE u.username=:user")
-			.setParameter("user", username).getSingleResult();
+		 return (Usuario) resultr;
 		}catch(Exception ex){}
 		return null;
 	}
@@ -63,23 +56,24 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	public List<Usuario> getlista() {
 		System.out.println("hola 1");
 		
-		List<Usuario> result=em.createQuery("select user from Usuario user").getResultList(); 
-		System.out.println("hola: " + result);
+		List<Usuario> resulta=em.createQuery("select user from Usuario user").getResultList(); 
+		System.out.println("hola 0: " + resulta);
+		return resulta;
+	}
+
+	@SuppressWarnings("unchecked")
+	public void setNombre(String username) {
+		try{
+			result= (List<Usuario>) em.createQuery("SELECT us FROM Usuario us WHERE us.username=:user")
+				.setParameter("user", username).getResultList();
+			System.out.println("byUser: " + result);
+			
+			}catch(Exception ex){}
+	}
+	public List<Usuario> getlistaEncontrados() {
 		return result;
 	}
 
-	public Usuario getNombre(String username) {
-		try{
-			Usuario result= (Usuario) em.createQuery("SELECT us FROM Usuario us WHERE us.username=:user")
-				.setParameter("user", username).getResultList();
-			 return result;
-			}catch(Exception ex){}
-			return null;
-	}
 
-	public List<Usuario> getlistaEncontrados() {
-		
-		return null;
-	}
 
 }

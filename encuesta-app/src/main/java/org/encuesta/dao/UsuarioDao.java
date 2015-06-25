@@ -10,8 +10,7 @@ public interface UsuarioDao {
 	boolean saveUsuario(Usuario usuario);
 	boolean editUsuario(Usuario usuario);
 	Usuario findUsuario(String username,String pwd);
-	Usuario findUsuario(String username);
-	public Usuario getNombre(String username);
+	public void setNombre(String username);
 	public List<Usuario> getlista();
 	public List<Usuario> getlistaEncontrados();
 }
