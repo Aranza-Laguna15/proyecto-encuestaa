@@ -7,17 +7,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<title>Find by UserName</title>
+<title>Result</title>
 </head>
 <body>
-<h1 class="text-center">Find by UserName</h1>
+<h1 class="text-center">Result Dates</h1>
 
-<form action="findbyUser.htm" method="post">
-    <label>Valor:</label>
-    <input type="text" required="required" name="user"/>
-    <input type="submit" value="Buscar">
-</form>
-<br>
-<h2><c:out value="${ERROR}"></c:out></h2>
+<c:forEach items="${informacion}" var="ef">
+<c:out value="${ef.idinformacion}"/>
+<c:out value="${ef.nombreNegocio}"/> 
+<c:out value="${ef.giroNegocio}"/>
+<c:out value="${ef.enabled}"/>
+<c:out value="${ef.nombre}"/>
+<c:out value="${ef.telefono}"/>
+<c:out value="${ef.direccion}"/>
+<c:out value="${ef.cmpActual}"/>
+<c:out value="${ef.comiActual}"/>
+<c:out value="${ef.lat}"/>
+<c:out value="${ef.lgt}"/>
+<c:out value="${ef.username}"/>
+<c:out value="${ef.fecha}"/>
+</c:forEach>
+
+
 </body>
 </html>

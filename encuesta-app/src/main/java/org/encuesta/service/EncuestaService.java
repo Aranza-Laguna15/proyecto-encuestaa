@@ -1,7 +1,7 @@
 package org.encuesta.service;
 
 import java.util.Date;
-
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -11,7 +11,11 @@ import org.encuesta.dao.UsuarioDao;
 import org.encuesta.domain.Encuesta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
+
+@Component
 @WebService
 public class EncuestaService {
 	@Autowired
@@ -21,7 +25,7 @@ public class EncuestaService {
 	@Autowired
 	private EncuestaDao encuestaDao;
 	
-	@WebMethod(operationName="loginapplication")
+/*	@WebMethod(operationName="loginapplication")
 	public String loginApplication(@WebParam(name="xmlRequest")String xmlRequest){
 		try{
 			String usuario = getNodo(xmlRequest, "user");
@@ -74,5 +78,14 @@ public class EncuestaService {
 	   	     return (builder.substring(indexOffBegin, indexOffEnd));
 		}catch(Exception ex){}
 		return "";
+	}*/
+
+	@Transactional
+	public void setFechas(Date fech1, Date fech2){
+		this.encuestaDao.setFechas(fech1, fech2);
+	}
+	
+	public List<Encuesta> getbydate() {
+		return encuestaDao.getbydate();
 	}
 }

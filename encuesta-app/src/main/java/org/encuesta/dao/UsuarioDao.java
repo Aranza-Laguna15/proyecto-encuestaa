@@ -13,4 +13,5 @@ public interface UsuarioDao {
 	public void setNombre(String username);
 	public List<Usuario> getlista();
 	public List<Usuario> getlistaEncontrados();
+	
 }

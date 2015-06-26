@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository(value="encuestaDao")
 public class EncuestaDaoImpl implements EncuestaDao{
-	
+	public List<Encuesta> fechas;
 	private EntityManager em;
 	
 	@PersistenceContext
@@ -64,6 +64,17 @@ public class EncuestaDaoImpl implements EncuestaDao{
 			return em.find(Encuesta.class, idEncuesta);
 		}catch(Exception ex){}
 		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	public void setFechas(Date fech1, Date fech2) {
+		fechas=(List<Encuesta>) em.createQuery("SELECT ef FROM Encuesta ef WHERE ef.fecha BETWEEN :fech1 AND :fech2")
+				.setParameter("fech1", fech1)
+				.setParameter("fech2", fech2).getResultList();
+	}
+
+	public List<Encuesta> getbydate() {
+		return fechas;
 	}
 
 }

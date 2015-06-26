@@ -2,7 +2,6 @@ package org.encuesta.dao;
 
 import java.util.Date;
 import java.util.List;
-
 import org.encuesta.domain.Encuesta;
 
 public interface EncuestaDao {
@@ -11,4 +10,6 @@ public interface EncuestaDao {
 	List<Encuesta> findEncuestas(Date d1,Date d2);
 	List<Encuesta> findEncuestas(Date d1,Date d2,String username);
 	Encuesta findEncuesta(int idEncuesta);
+	public void setFechas(Date fech1, Date fech2);
+	public List<Encuesta> getbydate();
 }

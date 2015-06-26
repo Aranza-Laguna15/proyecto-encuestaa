@@ -10,11 +10,13 @@
 <title>Find by UserName</title>
 </head>
 <body>
-<h1 class="text-center">Find by UserName</h1>
+<h1 class="text-center">Find by Dates</h1>
 
-<form action="findbyUser.htm" method="post">
-    <label>Valor:</label>
-    <input type="text" required="required" name="user"/>
+<form action="findbyDate.htm" method="post">
+    <label>De: </label>
+    <input type="date" required="required" name="fech1"/>
+    <label>Hasta: </label>
+    <input type="date" requires="required" name="fech2"/>
     <input type="submit" value="Buscar">
 </form>
 <br>

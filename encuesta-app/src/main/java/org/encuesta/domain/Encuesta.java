@@ -19,9 +19,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name="informacion")
 public class Encuesta {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idinformacion")
-	private int idEncuesta;
+	private int idinformacion;
 	@Column(name="nombreNegocio")
 	@NotEmpty
 	private String nombreNegocio;
@@ -44,17 +44,17 @@ public class Encuesta {
 	@Column(name="lat")
 	private double latitud;
 	@Column(name="fecha")
-	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	private Date fecha;
 	@Column(name="username")
 	@NotEmpty
 	private String username;
-	public int getIdEncuesta() {
-		return idEncuesta;
+	
+	public int getIdinformacion() {
+		return idinformacion;
 	}
-	public void setIdEncuesta(int idEncuesta) {
-		this.idEncuesta = idEncuesta;
+	public void setIdinformacion(int idinformacion) {
+		this.idinformacion = idinformacion;
 	}
 	public String getNombreNegocio() {
 		return nombreNegocio;
