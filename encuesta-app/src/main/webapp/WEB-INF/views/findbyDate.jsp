@@ -14,9 +14,9 @@
 
 <form action="findbyDate.htm" method="post">
     <label>De: </label>
-    <input type="date" required="required" name="fech1"/>
+    <input type="date" required="required" format="yyyy-MM-dd" name="fech1"/>
     <label>Hasta: </label>
-    <input type="date" requires="required" name="fech2"/>
+    <input type="date" requires="required" format="yyyy-MM-dd" name="fech2"/>
     <input type="submit" value="Buscar">
 </form>
 <br>

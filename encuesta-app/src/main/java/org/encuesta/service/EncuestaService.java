@@ -14,12 +14,10 @@ import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-
 @Component
 @WebService
 public class EncuestaService {
-	@Autowired
-	private UsuarioDao usuarioDao;
+	
 	@Autowired
 	private ShaPasswordEncoder encoder;
 	@Autowired
@@ -81,7 +79,7 @@ public class EncuestaService {
 	}*/
 
 	@Transactional
-	public void setFechas(Date fech1, Date fech2){
+	public void setFechas(String fech1, String fech2){
 		this.encuestaDao.setFechas(fech1, fech2);
 	}
 	

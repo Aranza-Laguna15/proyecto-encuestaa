@@ -40,12 +40,12 @@ public class Encuesta {
 	@Column(name="comiActual")
 	private double comiActual;
 	@Column(name="lgt")
-	private double longitud;
+	private double lgt;
 	@Column(name="lat")
-	private double latitud;
+	private double lat;
 	@Column(name="fecha")
 	@NotNull
-	private Date fecha;
+	private String fecha;
 	@Column(name="username")
 	@NotEmpty
 	private String username;
@@ -98,23 +98,23 @@ public class Encuesta {
 	public void setComiActual(double comiActual) {
 		this.comiActual = comiActual;
 	}
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	public double getLongitud() {
-		return longitud;
+	public double getLgt() {
+		return lgt;
 	}
-	public void setLongitud(double longitud) {
-		this.longitud = longitud;
+	public void setLgt(double lgt) {
+		this.lgt = lgt;
 	}
-	public double getLatitud() {
-		return latitud;
+	public double getLat() {
+		return lat;
 	}
-	public void setLatitud(double latitud) {
-		this.latitud = latitud;
+	public void setLat(double lat) {
+		this.lat = lat;
 	}
 	public String getUsername() {
 		return username;
@@ -123,5 +123,14 @@ public class Encuesta {
 		this.username = username;
 	}
 	
+	@Override
+	public String toString() {
+		return "Informacion [idinformacion=" + idinformacion + ", nombreNegocio=" + nombreNegocio
+				+ ", giroNegocio=" + giroNegocio + ", nombre=" + nombre + ", telefono=" + telefono + ""
+						+ ", direccion=" + direccion + ", cmpActual=" + cmpActual + ""
+								+ ", comiActual=" + comiActual + ", lat=" + lat + ""
+										+ ", lgt=" + lgt + ", username=" + username + ", fecha=" + fecha + ""
+														+ "]";
+	}
 	
 }

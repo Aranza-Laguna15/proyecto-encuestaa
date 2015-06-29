@@ -1,6 +1,5 @@
 package org.encuesta.dao;
 
-
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -11,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository(value="usuarioDao")
 public class UsuarioDaoImpl implements UsuarioDao{
 public List<Usuario> result,fechas;
-	private EntityManager em;
+	
+private EntityManager em;
+	
 	@PersistenceContext
 	public void setEm(EntityManager em) {
 		this.em = em;

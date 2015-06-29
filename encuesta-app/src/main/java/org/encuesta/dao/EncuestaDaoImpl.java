@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository(value="encuestaDao")
 public class EncuestaDaoImpl implements EncuestaDao{
+	
 	public List<Encuesta> fechas;
 	private EntityManager em;
 	
@@ -67,14 +68,18 @@ public class EncuestaDaoImpl implements EncuestaDao{
 	}
 
 	@SuppressWarnings("unchecked")
-	public void setFechas(Date fech1, Date fech2) {
-		fechas=(List<Encuesta>) em.createQuery("SELECT ef FROM Encuesta ef WHERE ef.fecha BETWEEN :fech1 AND :fech2")
+	public void setFechas(String fech1, String fech2) {
+		
+		fechas=(List<Encuesta>) em.createQuery("SELECT ef FROM Encuesta ef WHERE ef.fecha>=:fech1 AND ef.fecha<=:fech2 ")
 				.setParameter("fech1", fech1)
 				.setParameter("fech2", fech2).getResultList();
+		System.out.println("byDate 1: " + fechas);
 	}
 
 	public List<Encuesta> getbydate() {
+		System.out.println("byDate 2: " + fechas);
 		return fechas;
+		
 	}
 
 }
