@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class EncuestaDaoImpl implements EncuestaDao{
 	
 	public List<Encuesta> fechas;
+	public List<Encuesta> fechuser;
 	private EntityManager em;
 	
 	@PersistenceContext
@@ -79,7 +80,21 @@ public class EncuestaDaoImpl implements EncuestaDao{
 	public List<Encuesta> getbydate() {
 		System.out.println("byDate 2: " + fechas);
 		return fechas;
+	}
+
+	@SuppressWarnings("unchecked")
+	public void setFechUser(String d1,String d2, String username) {
+		fechuser=(List<Encuesta>) em.createQuery("SELECT ef FROM Encuesta ef WHERE ef.fecha>=:d1 AND ef.fecha<=:d2 AND ef.username=:username")
+				.setParameter("d1", d1)
+				.setParameter("d2", d2)
+				.setParameter("username",username).getResultList();
+		System.out.println("by Date-User: " + fechuser);
 		
+	}
+
+	public List<Encuesta> getFechUser() {
+		System.out.println("byDate-User 1: " + fechuser);
+		return fechuser;
 	}
 
 }

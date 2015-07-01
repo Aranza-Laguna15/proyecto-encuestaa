@@ -1,5 +1,7 @@
 package org.encuesta.controllers;
 
+import java.util.Date;
+
 import org.encuesta.service.EncuestaService;
 import org.encuesta.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +59,25 @@ public class FindController {
 			model.addAttribute("ef",eS.getbydate());
 		}
 		return "findbyDateR";
+	 }
+	@RequestMapping(value = "/findbyDateUser.htm",method = RequestMethod.GET)
+	  public String singleRequestDateUser(){
+		 return "findbyDateUser";
+	   }
+	
+	@RequestMapping(value="/findbyDateUser.htm", method = RequestMethod.POST)
+	 public String findUserbyDateUser(Model model,@RequestParam(value = "d1",required = true)String d1, @RequestParam(value="d2", required = true)String d2, @RequestParam(value="username", required = true) String username){
+		eS.setFechUser(d1, d2, username);
+		
+		if(eS.getFechUser()==null){
+		System.out.println("ERROR *-* NO ENCONTRADO");
+		model.addAttribute("ERROR", "NO SE ENCONTRARON ENCUESTAS");
+		return null;
+		}else{
+			System.out.println("DE: "+d1+" HASTA: "+d2+" USERNAME: "+username);
+			model.addAttribute("ef",eS.getFechUser());
+		}
+		return "findbyDateUserR";
 	 }
 	
 }

@@ -86,4 +86,13 @@ public class EncuestaService {
 	public List<Encuesta> getbydate() {
 		return encuestaDao.getbydate();
 	}
+
+	@Transactional
+	public void setFechUser(String d1, String d2, String username){
+	this.encuestaDao.setFechUser(d1, d2, username);
+	}
+
+	public List<Encuesta> getFechUser() {
+	return encuestaDao.getFechUser();
+	}
 }
