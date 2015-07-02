@@ -29,6 +29,13 @@ public class MainController {
 				*/
 		return "index";
 	}
+	@RequestMapping(value="/users.htm",method=RequestMethod.GET)
+	public String users(Model model){
+		/*List<Usuario> usuarios=uS.getUsuario();
+		model.addAttribute("users",usuarios);
+				*/
+		return "users";
+	}
 	
 	@RequestMapping(value="/hola.htm",method=RequestMethod.GET)
 	public String otroMapping(Model model,
