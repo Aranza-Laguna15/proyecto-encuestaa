@@ -8,11 +8,11 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
 <title>USUARIOS</title>
-<link rel="stylesheet" href="bootstrap-3.3.4-dist/css/bootstrap.min.css" >
-<link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
- <link href="bootstrap-3.3.4-dist/css/dashboard.css" rel="stylesheet">
+ <link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
+<link href="bootstrap-3.3.4-dist/css/dashboard.css" rel="stylesheet">
+
 </head> 
 <body role="document">
  <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -35,39 +35,46 @@
     </nav>
     
 <div class="jumbotron">
-<h1 class="text-center"> BIENVENIDO </h1>
+<h1 class="text-center"> USUARIOS </h1>
 </div>
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">USUARIOS</h1>
+<div class="placeholders">
+          <h1 class="page-header"></h1>
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <h4> USUARIOS NUEVOS</h4><br>
-              <form action=<c:url value="usersNew.htm"/>>
-				<button type="submit" class="btn btn-lg btn-info">MOSTRAR</button>
-				</form>
+             <!--   <form action=<c:url value="usersNew.htm"/>>-->
+             <a class="btn btn-primary" role="button" data-toggle="collapse" href="usersNew.htm" aria-expanded="false" aria-controls="collapseExample">
+  MOSTRAR
+</a>
+				<button type="submit" class="btn btn-warning" id="nuevos">MOSTRAR</button>
+			<!-- 	</form>-->
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <h4>USUARIOS EDITADOS</h4><br>
               <form action=<c:url value="usersEdit.htm"/>>
-				<button type="submit" class="btn btn-lg btn-info">MOSTRAR</button>
+				<button type="submit" class="btn btn-warning">MOSTRAR</button>
 			  </form>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
                <h4>USUARIOS ELIMINADOS</h4><br>
               <form action=<c:url value="usersDel.htm"/>>
-				<button type="submit" class="btn btn-lg btn-info">MOSTRAR</button>
+				<button type="submit" class="btn btn-warning">MOSTRAR</button>
 				</form> 
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <h4>MOSTRAR TODOS</h4><br>
   				 <form action=<c:url value=".htm"/>>
-					<button type="submit" class="btn btn-lg btn-info">MOSTRAR</button>
+					<button type="submit" class="btn btn-warning">MOSTRAR</button>
 				 </form> 
             </div>
           </div>
-          </div>
-
+</div>
+<div class="collapse" id="collapseExample">
+  <div class="well">
+    ...
+  </div>
+</div>
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
