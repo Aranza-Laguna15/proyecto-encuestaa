@@ -93,6 +93,7 @@ body {
   margin-bottom: 30px;
   text-align: center;
   margin-left:0;
+  width:100%;
 }
 .placeholders h4 {
   margin-bottom: 0;
@@ -120,4 +121,26 @@ body {
 .marketing .col-lg-4 p {
   margin-right: 10px;
   margin-left: 30px;
+}
+
+/* COLLAPSE
+-------------------------------------------------- */
+
+.fram{
+	width:90%; 
+	height:400px;
+	background: with;
+	border:0;
+	marginwidth:0;
+	marginheight:0;
+	align:center;
+	margin-left:50px;
+
+}
+.collapse{
+	background: with;
+}
+
+input[type="date"]{
+	width:90px; 
 }

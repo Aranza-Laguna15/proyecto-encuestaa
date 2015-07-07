@@ -17,6 +17,14 @@ public class UsuariosNew {
 	
 	@Column(name="name")
 	private String name;
+	@Column(name="password")
+	private String password;
+	
+	@Column(name="enabled")
+	private boolean enabled;
+	
+	@Column(name="fecha_insercion")
+	private String fecha_insercion;
 	
 	public String getId_historial() {
 		return id_historial;
@@ -58,22 +66,14 @@ public class UsuariosNew {
 		this.enabled = enabled;
 	}
 
-	public boolean isFecha_insercion() {
+	public String getFecha_insercion() {
 		return fecha_insercion;
 	}
 
-	public void setFecha_insercion(boolean fecha_insercion) {
+	public void setFecha_insercion(String fecha_insercion) {
 		this.fecha_insercion = fecha_insercion;
 	}
 
-	@Column(name="password")
-	private String password;
-	
-	@Column(name="enabled")
-	private boolean enabled;
-	
-	@Column(name="fecha_insercion")
-	private boolean fecha_insercion;
 
 	@Override
 	public String toString() {

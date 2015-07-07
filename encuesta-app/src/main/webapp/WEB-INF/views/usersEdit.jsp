@@ -1,19 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>USERS</title>
+ <link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
+<link href="bootstrap-3.3.4-dist/css/dashboard.css" rel="stylesheet">
 </head>
 <body>
-<h3> USUARIOS EDITADOS</h3>
-<table>
-<tr><td style="width: 30px; "> ID</td><td style="width: 150px; "> USERNAME ANT</td><td style="width: 150px; "> USERNAME NEW</td>
-<td style="width: 150px; "> PASSWORD ANT</td><td style="width: 150px; "> PASSWORD NEW</td><td style="width: 150px; "> NAME ANT</td>
-<td style="width: 150px; "> NAME NEW</td><td style="width: 150px; "> ENABLED ANT</td><td style="width: 150px; "> ENABLED NEW</td>
-<td style="width: 150px; "> FECHA EDICIÓN</td></tr>
+<h2 class="sub-header"> USUARIOS EDITADOS</h2>
+<div class="table-responsive">
+<table class="table table-striped">
+<tr><th> ID</th><th> USERNAME ANT</th><th> USERNAME NEW</th>
+<th> PASSWORD ANT</th><th> PASSWORD NEW</th><th> NAME ANT</th>
+<th> NAME NEW</th><th> ENABLED ANT</th><th> ENABLED NEW</th>
+<th> FECHA EDICIÓN</th></tr>
 <c:forEach items="${user_editados}" var="us">
 <tr><td><c:out value="${us.id_edicion}"/></td>
 <td><c:out value="${us.username_ant}"/></td>
@@ -28,8 +33,11 @@
 </tr>
 </c:forEach>
 </table>
-<form action=<c:url value="index.htm"/>>
-<input type="submit" value="REGRESAR" >
-</form>
+</div>
+
+<!-- Librería jQuery requerida por los plugins de JavaScript -->
+ <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

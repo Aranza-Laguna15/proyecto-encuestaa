@@ -15,8 +15,8 @@
 
 </head> 
 <body role="document">
- <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -24,18 +24,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Encuesta</a>
+          <a class="navbar-brand" href=<c:url value="index.htm"/>>Encuesta</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
+          
+        </div><!--/.navbar-collapse -->
       </div>
     </nav>
     
 <div class="jumbotron">
-<h1 class="text-center"> USUARIOS </h1>
+<h1 class="text-center"> U S U A R I O S </h1>
 </div>
 <div class="placeholders">
           <h1 class="page-header"></h1>
@@ -43,41 +41,51 @@
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <h4> USUARIOS NUEVOS</h4><br>
-             <!--   <form action=<c:url value="usersNew.htm"/>>-->
-             <a class="btn btn-primary" role="button" data-toggle="collapse" href="usersNew.htm" aria-expanded="false" aria-controls="collapseExample">
-  MOSTRAR
-</a>
-				<button type="submit" class="btn btn-warning" id="nuevos">MOSTRAR</button>
-			<!-- 	</form>-->
+				<button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#demo">MOSTRAR</button>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <h4>USUARIOS EDITADOS</h4><br>
-              <form action=<c:url value="usersEdit.htm"/>>
-				<button type="submit" class="btn btn-warning">MOSTRAR</button>
-			  </form>
+              <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#edit" >MOSTRAR</button>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
                <h4>USUARIOS ELIMINADOS</h4><br>
-              <form action=<c:url value="usersDel.htm"/>>
-				<button type="submit" class="btn btn-warning">MOSTRAR</button>
-				</form> 
+				<button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#delete">MOSTRAR</button>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <h4>MOSTRAR TODOS</h4><br>
-  				 <form action=<c:url value=".htm"/>>
-					<button type="submit" class="btn btn-warning">MOSTRAR</button>
-				 </form> 
+					<button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#todos">MOSTRAR</button>
             </div>
           </div>
 </div>
-<div class="collapse" id="collapseExample">
-  <div class="well">
-    ...
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+<div class="accordion-body collapse" id="demo">
+  <div class="accordion-inner">
+   <iframe class="fram" src=<c:url value="usersNew.htm"/>></iframe>
   </div>
 </div>
+ </div>
+<div class="accordion-body collapse" id="edit">
+  <div class="accordion-inner">
+    <iframe class="fram" src=<c:url value="usersEdit.htm"/>></iframe>
+    </div>
+</div>
+<div class="accordion-body collapse" id="delete">
+  <div class="accordion-inner">
+    <iframe class="fram" src=<c:url value="usersDel.htm"/>></iframe>
+    </div>
+</div>
+<div class="accordion-body collapse" id="todos">
+  <div class="accordion-inner">
+    <iframe class="fram" src=<c:url value="usersAll.htm"/>></iframe>
+    </div>
+</div>
+  </div>
+ 
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+

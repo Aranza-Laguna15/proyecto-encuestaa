@@ -13,16 +13,16 @@
 <link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-<div class="jumbotron">
-<h1 class="text-center">Find by Dates</h1>
-</div>
+
+<h2>B U S C AR</h2>
+
 <form action="findbyDate.htm" method="post">
 <div class="form-group">
     <label>De: </label>
     <input type="date" class="form-control" required="required" format="yyyy-MM-dd" name="fech1"/>
     <label>Hasta: </label>
-    <input type="date" class="form-control" required="required" format="yyyy-MM-dd" name="fech2"/>
-    <input type="submit" value="Buscar">
+    <input type="date" class="form-control" required="required" format="yyyy-MM-dd" name="fech2"/> <br>
+    <input type="button" class="btn btn-warning"value="Buscar">
     </div>
 </form>
 <br>

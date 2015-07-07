@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ExampleController {
 
+	@RequestMapping(value="/reportes.htm",method=RequestMethod.GET)
+	public String reportes(Model model){
+		return "reportes";
+	}
     /**
      * Este metodo responde al GET del mapping example1.htm
      * */
