@@ -1,6 +1,5 @@
 package org.encuesta.service;
 
-import java.util.Date;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -94,5 +93,9 @@ public class EncuestaService {
 
 	public List<Encuesta> getFechUser() {
 	return encuestaDao.getFechUser();
+	}
+	@Transactional
+	public void setFecha(String fec1, String fec2){
+		this.encuestaDao.setFechas(fec1, fec2);
 	}
 }

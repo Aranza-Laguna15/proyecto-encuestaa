@@ -128,7 +128,7 @@ body {
 
 .fram{
 	width:90%; 
-	height:400px;
+	height:300px;
 	background: with;
 	border:0;
 	marginwidth:0;
@@ -143,4 +143,13 @@ body {
 
 input[type="date"]{
 	width:90px; 
+}
+.fram-tab{
+	width:90%; 
+	height:500px;
+	border:0;
+	marginwidth:0;
+	marginheight:0;
+	align:center;
+	margin-left:50px;
 }

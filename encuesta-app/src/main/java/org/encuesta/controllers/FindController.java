@@ -1,7 +1,5 @@
 package org.encuesta.controllers;
 
-import java.util.Date;
-
 import org.encuesta.service.EncuestaService;
 import org.encuesta.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,6 +77,23 @@ public class FindController {
 		}
 		return "findbyDateUserR";
 	 }
+	@RequestMapping(value = "/findbyDateLoc.htm",method = RequestMethod.GET)
+	  public String DateLoc(){
+		 return "findbyDateLoc";
+	   }
 	
+	@RequestMapping(value="/findbyDateLoc.htm", method = RequestMethod.POST)
+	 public String findDatesLoc(Model model,@RequestParam(value = "fec1",required = true)String fec1, @RequestParam(value="fec2", required = true) String fec2){
+		eS.setFecha(fec1, fec2);
+		if(eS.getbydate()==null){
+		System.out.println("ERROR *-* NO ENCONTRADO");
+		model.addAttribute("ERROR", "NO SE ENCONTRARON ENCUESTAS");
+		return null;
+	}else{
+			System.out.println("DE: "+fec1+" HASTA: "+fec2);
+			model.addAttribute("ef",eS.getbydate());
+		}
+		return "findbyDateLocR";
+	 }
 }
 

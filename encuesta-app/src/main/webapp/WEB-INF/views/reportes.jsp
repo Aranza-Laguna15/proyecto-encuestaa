@@ -43,20 +43,20 @@
    <li><a href="#user-loc" data-toggle="tab">USUARIO CON UBICACIÓN</a></li>
 </ul>
 <div class="tab-content">
-  <div class="tab-pane active" id="date">
-  <iframe class="fram" src=<c:url value="findbyDate.htm"/>></iframe>
+  <div class="tab-pane fade active in" id="date">
+  <iframe class="fram-tab" src=<c:url value="findbyDate.htm"/>></iframe>
   </div>
-  <div class="tab-pane" id="user">
-  <iframe class="fram" src=<c:url value="findbyUser.htm"/>></iframe>
+  <div class="tab-pane fade" id="user">
+  <iframe class="fram-tab" src=<c:url value="findbyUser.htm"/>></iframe>
   </div>
-  <div class="tab-pane" id="date-user">
-  <iframe class="fram" src=<c:url value="findbyDateUser.htm"/>></iframe>
+  <div class="tab-pane fade" id="date-user">
+  <iframe class="fram-tab" src=<c:url value="findbyDateUser.htm"/>></iframe>
   </div>
-  <div class="tab-pane" id="date-loc">
-  <iframe class="fram" src=<c:url value="findbyDateLoc.htm"/>></iframe>
+  <div class="tab-pane fade" id="date-loc">
+  <iframe class="fram-tab" src=<c:url value="findbyDateLoc.htm"/>></iframe>
   </div>
-  <div class="tab-pane" id="user-loc">
-  <iframe class="fram" src=<c:url value="findbyUserLoc.htm"/>></iframe>
+  <div class="tab-pane fade" id="user-loc">
+  <iframe class="fram-tab" src=<c:url value="findbyUserLoc.htm"/>></iframe>
   </div>
 </div>
 

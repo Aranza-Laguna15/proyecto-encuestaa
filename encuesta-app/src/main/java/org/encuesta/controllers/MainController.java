@@ -37,6 +37,13 @@ public class MainController {
 		return "users";
 	}
 	
+	@RequestMapping(value="/usersAll.htm",method=RequestMethod.GET)
+	public String usersAll(Model model){
+		List<Usuario> usuarios=uS.getUsuario();
+		model.addAttribute("users",usuarios);
+		return "usersAll";
+	}
+	
 	@RequestMapping(value="/hola.htm",method=RequestMethod.GET)
 	public String otroMapping(Model model,
 			@RequestParam(value="nombre",required=true,defaultValue="Victor")String nombre){

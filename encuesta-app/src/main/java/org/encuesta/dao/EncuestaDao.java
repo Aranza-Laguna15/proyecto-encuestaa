@@ -17,5 +17,6 @@ public interface EncuestaDao {
 	public List<Encuesta> getbydate();
 	public void setFechUser(String d1, String d2, String username);
 	public List<Encuesta>getFechUser();
+	
 
 }
