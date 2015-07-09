@@ -13,15 +13,22 @@
 <link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-<h1 class="text-center">Find by UserName</h1>
 
-<form action="findbyUser.htm" method="post">
-    <label class="control-label" >USERNAME: </label>
-    <input type="text" class="form-control" required="required" name="user">
-    <input type="submit" class="btn btn-warning" value="Buscar">
+<h2 class="sub-header">B U S C AR</h2>
+
+<form action="findbyUserLoc.htm" method="post">
+<div class="form-group">
+   <span class="label label-default">USERNAME</span>
+    <input type="text" required="required" name="user"/>
+    <input type="submit" value="Buscar">
+    <input type="submit" class="btn btn-warning"value="Buscar">
+    </div>
 </form>
 <br>
-
+<div class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>ERROR</strong> <c:out value="${ERROR}"></c:out> <a href="#" class="alert-link"> Vuelve a intentarlo</a>
+</div>
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

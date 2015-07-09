@@ -22,7 +22,7 @@
     <input type="date" class="form-control" required="required" format="yyyy-MM-dd" name="fech1"/>
     <label>Hasta: </label>
     <input type="date" class="form-control" required="required" format="yyyy-MM-dd" name="fech2"/> 
-    <input type="submit" class="btn btn-warning"value="Buscar">
+    <input type="submit" class="btn btn-warning" value="Buscar">
     </div>
 </form>
 <br>
