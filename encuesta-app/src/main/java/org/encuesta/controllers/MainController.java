@@ -1,6 +1,7 @@
 package org.encuesta.controllers;
 
 import java.util.List;
+
 import org.encuesta.domain.Usuario;
 import org.encuesta.domain.UsuariosDelete;
 import org.encuesta.domain.UsuariosEdit;
@@ -74,6 +75,27 @@ public class MainController {
 		model.addAttribute("user_nuevos",usuarios);		
 		return "usersNew";
 	}
+	
+	@RequestMapping(value = "addUser.htm",method = RequestMethod.GET)
+	  public String singleRequestDateUser(){
+		 return "addUser.htm";
+	   }
+	
+	/*@RequestMapping(value="/addUser.htm",method=RequestMethod.POST)
+	public String addUser(Model model, @RequestParam(value = "username",required = true)String username,
+	@RequestParam(value = "name",required = true)String name,@RequestParam(value = "password",required = true)
+	String password, @RequestParam(value = "enabled",required = true)boolean enabled){
+		
+		try{
+		uS.addUser(username, name, password, enabled);
+		model.addAttribute("us", "USUARIO AGREGADO");
+		
+		}catch(Exception err){
+		model.addAttribute("us", "USUARIO NO AGREGADO "+ err.getMessage());
+		}
+		return "hola";
+		
+	}*/
 }
 
 /*

@@ -26,15 +26,6 @@
           <a class="navbar-brand" href=<c:url value="index.htm"/>>Encuesta</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -64,6 +55,7 @@
 <div class="page-header">
 
 </div>
+<a class="btn btn-default" href="<c:url value="addUser.htm"/>" role="button">Usuarios &raquo;</a>
 <br>
 
  <!-- Librería jQuery requerida por los plugins de JavaScript -->

@@ -80,7 +80,13 @@ public class UsuarioService {
 		return usuarioDao.getlistaEncontrados();
 		
 	}
-
+/*
+ * 
+ */
+	@Transactional
+	public void addUser(String username, String name, String password, boolean enabled){
+		this.usuarioDao.insertUser(username, name, password, enabled);
+	}
 	
 	
 	

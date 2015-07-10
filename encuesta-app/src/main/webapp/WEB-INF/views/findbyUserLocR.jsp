@@ -14,8 +14,8 @@
 <script type="text/javascript">	
  function initialize() {
 var marcadores = [
-           <c:forEach var="ef" items="${ef}">
-	['<c:out value="${ef.nombreNegocio}"/>', <c:out value="${ef.lat}"/> , <c:out value="${ef.lgt}"/>],
+           <c:forEach var="ef" items="${user}">
+	['<c:out value="${ef.username}"/>', <c:out value="${ef.lat}"/> , <c:out value="${ef.lgt}"/>],
         </c:forEach>        ];
         
   var myCenter=new google.maps.LatLng(20.080580,-98.368956);
@@ -56,7 +56,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <table class="table table-striped">
 <tr><th> ID</th><th> NEGOCIO</th><th> GIRO</th><th>NOMBRE </th><th> TELEFONO</th><th>DIRECCIÓN</th>
 <th> COMPAÑIA ACTUAL</th><th> COMISIÓN</th><th> USERNAME</th><th>FECHA</th></tr>
-<c:forEach items="${ef}" var="ef">
+<c:forEach items="${user}" var="ef">
 <tr><td><c:out value="${ef.idinformacion}"/></td>
 <td><c:out value="${ef.nombreNegocio}"/> </td>
 <td><c:out value="${ef.giroNegocio}"/></td>
@@ -72,7 +72,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </div>
 <h1 class="sub-header">Ubicación</h1>
 <div id="googleMap" class="map"></div>
-
+<ul class="pager">
+  <li><a href="findbyUserLoc.htm"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Realizar nueva busqueda</a></li>
+</ul>
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

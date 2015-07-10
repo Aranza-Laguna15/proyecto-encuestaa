@@ -1,8 +1,10 @@
 package org.encuesta.dao;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.encuesta.domain.Usuario;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -71,6 +73,21 @@ private EntityManager em;
 	}
 	public List<Usuario> getlistaEncontrados() {
 		return result;
+	}
+
+
+	public void insertUser(String username, String name, String password,
+			boolean enabled) {
+			try{
+			
+			em.createQuery("INSERT INTO Usuario us VALUES (us.username:=user, name:=name, password:=password,enabled:=enabled)")
+				.setParameter("user", username)
+				.setParameter("name", name)
+				.setParameter("password", password)
+				.setParameter("enabled",enabled);
+			
+			}catch(Exception ex){}
+		
 	}
 
 	}

@@ -15,6 +15,7 @@ public class EncuestaDaoImpl implements EncuestaDao{
 	
 	public List<Encuesta> fechas;
 	public List<Encuesta> fechuser;
+	public List<Encuesta> user;
 	private EntityManager em;
 	
 	@PersistenceContext
@@ -95,6 +96,15 @@ public class EncuestaDaoImpl implements EncuestaDao{
 	public List<Encuesta> getFechUser() {
 		System.out.println("byDate-User 1: " + fechuser);
 		return fechuser;
+	}
+
+	@SuppressWarnings("unchecked")
+	public void setUser(String username) {
+		user=(List<Encuesta>)em.createQuery("SELECT ef FROM Encuesta ef WHERE ef.username=:username")
+				.setParameter("username", username).getResultList();
+	}
+	public List<Encuesta> getUsers() {
+		return user;
 	}
 
 }

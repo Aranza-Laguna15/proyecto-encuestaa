@@ -18,17 +18,13 @@
 
 <form action="findbyUserLoc.htm" method="post">
 <div class="form-group">
-   <span class="label label-default">USERNAME</span>
-    <input type="text" required="required" name="user"/>
-    <input type="submit" value="Buscar">
+   <label class="control-label" >USERNAME</label>
+    <input type="text" class="form-control" required="required" name="user"/>
     <input type="submit" class="btn btn-warning"value="Buscar">
     </div>
 </form>
 <br>
-<div class="alert alert-dismissible alert-danger">
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <strong>ERROR</strong> <c:out value="${ERROR}"></c:out> <a href="#" class="alert-link"> Vuelve a intentarlo</a>
-</div>
+ <h2><c:out value="${ERROR}"></c:out> </h2>
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -2,26 +2,35 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<title>Find by Dates And User</title>
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<title>Find by Dates</title>
+<link rel="stylesheet" href="bootstrap-3.3.4-dist/css/bootstrap.min.css" >
+<link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-<h1 class="text-center">Find by Dates and User</h1>
+<h1 class="sub-header">BUSCAR</h1>
 
 <form action="findbyDateUser.htm" method="post">
+<div class="form-group">
     <label>De: </label>
-    <input type="date" required="required" format="yyyy-MM-dd" name="d1"/>
+    <input type="date" class="form-control" required="required" format="yyyy-MM-dd" name="d1"/>
     <label>Hasta: </label>
-    <input type="date" required="required" format="yyyy-MM-dd" name="d2"/>
+    <input type="date" class="form-control" required="required" format="yyyy-MM-dd" name="d2"/>
     <label>Username</label>
-    <input type="text" required="required" name="username"/>
-    <input type="submit" value="Buscar">
+    <input type="text" class="form-control" required="required" name="username"/>
+    <input type="submit" class="btn btn-warning" value="Buscar">
+    </div>
 </form>
 <br>
 <h2><c:out value="${ERROR}"></c:out></h2>
+ <!-- Librería jQuery requerida por los plugins de JavaScript -->
+ <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

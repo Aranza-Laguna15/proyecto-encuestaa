@@ -98,4 +98,11 @@ public class EncuestaService {
 	public void setFecha(String fec1, String fec2){
 		this.encuestaDao.setFechas(fec1, fec2);
 	}
+	@Transactional
+	public void setUser(String username){
+		this.encuestaDao.setUser(username);
+	}
+	public List<Encuesta> getUsers(){
+		return encuestaDao.getUsers();
+	}
 }

@@ -51,6 +51,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 </head>
 <body>
+
 <h1 class="sub-header">INFORMACIÓN</h1>
 <div class="table-responsive">
 <table class="table table-striped">
@@ -72,7 +73,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </div>
 <h1 class="sub-header">Ubicación</h1>
 <div id="googleMap" class="map"></div>
-
+<ul class="pager">
+  <li><a href="findbyDateLoc.htm"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Realizar nueva busqueda</a></li>
+</ul>
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
