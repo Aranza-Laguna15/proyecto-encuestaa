@@ -35,52 +35,33 @@
 <div class="jumbotron">
 <h1 class="text-center"> U S U A R I O S </h1>
 </div>
-<div class="placeholders">
-          <h1 class="page-header"></h1>
+<ul class="nav nav-tabs" id="myTab">
+  <li><a href="#user-create" data-toggle="tab">CREAR USUARIO</a></li>
+   <li><a href="#users" data-toggle="tab">USUARIOS</a></li>
+  <li><a href="#user-new" data-toggle="tab">USUARIOS NUEVOS</a></li>
+  <li><a href="#user-edit" data-toggle="tab">USUARIOS EDITADOS</a></li>
+  <li><a href="#user-delete" data-toggle="tab">USUARIOS ELIMINADOS</a></li>
+</ul>
 
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <h4> USUARIOS NUEVOS</h4><br>
-				<button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#demo">MOSTRAR</button>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <h4>USUARIOS EDITADOS</h4><br>
-              <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#edit" >MOSTRAR</button>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-               <h4>USUARIOS ELIMINADOS</h4><br>
-				<button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#delete">MOSTRAR</button>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <h4>MOSTRAR TODOS</h4><br>
-					<button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#todos">MOSTRAR</button>
-            </div>
-          </div>
-</div>
-<div class="accordion" id="accordion2">
-  <div class="accordion-group">
-<div class="accordion-body collapse" id="demo">
-  <div class="accordion-inner">
-   <iframe class="fram" src=<c:url value="usersNew.htm"/>></iframe>
+<div class="tab-content">
+    <div class="tab-pane fade" id="user-create">
+  <iframe class="fram-tab" src=<c:url value="addUser.htm"/>></iframe>
   </div>
-</div>
- </div>
-<div class="accordion-body collapse" id="edit">
-  <div class="accordion-inner">
-    <iframe class="fram" src=<c:url value="usersEdit.htm"/>></iframe>
-    </div>
-</div>
-<div class="accordion-body collapse" id="delete">
-  <div class="accordion-inner">
-    <iframe class="fram" src=<c:url value="usersDel.htm"/>></iframe>
-    </div>
-</div>
-<div class="accordion-body collapse" id="todos">
-  <div class="accordion-inner">
-    <iframe class="fram" src=<c:url value="usersAll.htm"/>></iframe>
-    </div>
-</div>
+  <div class="tab-pane fade" id="users">
+  <iframe class="fram-tab" src=<c:url value="usersAll.htm"/>></iframe>
   </div>
+  <div class="tab-pane fade" id="user-new">
+  <iframe class="fram-tab" src=<c:url value="usersNew.htm"/>></iframe>
+  </div>
+  <div class="tab-pane fade" id="user-edit">
+  <iframe class="fram-tab" src=<c:url value="usersEdit.htm"/>></iframe>
+  </div>
+  <div class="tab-pane fade" id="user-delete">
+  <iframe class="fram-tab" src=<c:url value="usersDel.htm"/>></iframe>
+  </div>
+
+</div>
+
  
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>

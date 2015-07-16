@@ -1,26 +1,35 @@
 package org.encuesta.dao;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import org.encuesta.domain.Usuario;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Repository(value="usuarioDao")
+@Transactional
+@Repository
 public class UsuarioDaoImpl implements UsuarioDao{
 public List<Usuario> result,fechas;
 	
-private EntityManager em;
+public EntityManager em;
 	
 	@PersistenceContext
 	public void setEm(EntityManager em) {
 		this.em = em;
 	}
+
 	
-	@Transactional(readOnly=false)
+	public void saveUsuario(Usuario usuario) {
+		try{
+			em.persist(usuario);
+			System.out.println("AGREGADO ");
+		}catch(Exception ex){
+			ex.printStackTrace();
+			System.out.println("ERROR "+ex.getLocalizedMessage());
+		}
+	}
+	/*@Transactional(readOnly=false)
 	public boolean saveUsuario(Usuario usuario) {
 		try{
 			em.persist(usuario);
@@ -29,9 +38,9 @@ private EntityManager em;
 			ex.printStackTrace();
 		}
 		return false;
-	}
+	}*/
 
-	@Transactional(readOnly=false)
+	@Transactional
 	public boolean editUsuario(Usuario usuario) {
 		try{
 			em.merge(usuario);
@@ -39,7 +48,14 @@ private EntityManager em;
 		}catch(Exception ex){}
 		return false;
 	}
+	/*public Usuario getUser(String username) {
+		return (Usuario) em.getClass(Usuario.class,username);
+	}
 
+	public void deleteUsuario(String username) {
+		Usuario usuario=
+		
+	}*/
 	
 	 @SuppressWarnings("unchecked")
 	public Usuario findUsuario(String username, String pwd) {
@@ -76,7 +92,7 @@ private EntityManager em;
 	}
 
 
-	public void insertUser(String username, String name, String password,
+	/*public void insertUser(String username, String name, String password,
 			boolean enabled) {
 			try{
 			
@@ -88,7 +104,10 @@ private EntityManager em;
 			
 			}catch(Exception ex){}
 		
-	}
+	}*/
+
+	
+
 
 	}
 

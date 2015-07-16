@@ -16,7 +16,6 @@ import org.encuesta.domain.UsuariosNew;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
 @ManagedBean(name="username")
 @Component
 public class UsuarioService {
@@ -71,7 +70,6 @@ public class UsuarioService {
 	/*
  * 
  */
-	@Transactional
 	public void setUsuarioNombre(String username){
 		this.usuarioDao.setNombre(username);
 	}
@@ -83,9 +81,8 @@ public class UsuarioService {
 /*
  * 
  */
-	@Transactional
-	public void addUser(String username, String name, String password, boolean enabled){
-		this.usuarioDao.insertUser(username, name, password, enabled);
+	public void addUser(Usuario usuario){
+		this.usuarioDao.saveUsuario(usuario);
 	}
 	
 	

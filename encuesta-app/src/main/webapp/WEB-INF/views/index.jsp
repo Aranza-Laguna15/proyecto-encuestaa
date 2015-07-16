@@ -55,7 +55,7 @@
 <div class="page-header">
 
 </div>
-<a class="btn btn-default" href="<c:url value="addUser.htm"/>" role="button">Usuarios &raquo;</a>
+<a class="btn btn-default" href="addUser.htm" role="button">Usuarios &raquo;</a>
 <br>
 
  <!-- Librería jQuery requerida por los plugins de JavaScript -->

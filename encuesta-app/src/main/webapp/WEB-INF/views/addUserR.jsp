@@ -14,29 +14,12 @@
 <link href="bootstrap-3.3.4-dist/css/dashboard.css" rel="stylesheet">
 
 </head> 
-<body >
+<body role="document">
 
-<form:form modelAttribute="usuario" action="addUser.htm" method="post" class="form-horizontal" >
-	<legend>Nuevo Usuario</legend>
-    <div class="form-group">
-      <label class="col-lg-2 control-label">Username</label>
-      <div class="col-lg-10">
-        <form:input type="text" class="form-control" path="username" placeholder="Username" required="required"/>
-      </div>
-       <label class="col-lg-2 control-label">Name</label>
-      <div class="col-lg-10">
-        <form:input type="text" class="form-control" path="name" placeholder="Name" required="required"/>
-      </div>
-       <label class="col-lg-2 control-label">Password</label>
-      <div class="col-lg-10">
-        <form:input type="password" class="form-control" path="password" placeholder="Password" required="required"/>
-      </div><br>
-      <div class="col-lg-10 col-lg-offset-2">
-        <form:button type="submit" class="btn btn-warning">Submit</form:button>
-      </div>
-      </div>
-</form:form>
-
+ <h2><c:out value="${us}"/></h2>
+ <ul class="pager">
+  <li><a href="addUser.htm"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Regresar</a></li>
+</ul>
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

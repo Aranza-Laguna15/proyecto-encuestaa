@@ -10,7 +10,9 @@ import org.encuesta.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,7 +70,7 @@ public class MainController {
 		return "usersEdit";
 	}
 	
-	@RequestMapping(value="/usersNew.htm",method=RequestMethod.GET)
+	@RequestMapping(value="/usersNew.htm", method = RequestMethod.GET)
 	public String userNew(Model model){
 		List<UsuariosNew> usuarios=uS.getUsuariosNew();
 		System.out.println("usuarios nuevos: "+usuarios);
@@ -76,26 +78,20 @@ public class MainController {
 		return "usersNew";
 	}
 	
-	@RequestMapping(value = "addUser.htm",method = RequestMethod.GET)
-	  public String singleRequestDateUser(){
-		 return "addUser.htm";
+	@RequestMapping (value="/addUser.htm",method = RequestMethod.GET)
+	  public String singleRequestUsuario(Model model){
+		model.addAttribute("usuario",new Usuario());
+		return "addUser";
 	   }
 	
-	/*@RequestMapping(value="/addUser.htm",method=RequestMethod.POST)
-	public String addUser(Model model, @RequestParam(value = "username",required = true)String username,
-	@RequestParam(value = "name",required = true)String name,@RequestParam(value = "password",required = true)
-	String password, @RequestParam(value = "enabled",required = true)boolean enabled){
+	@RequestMapping(value="/addUser.htm" , method=RequestMethod.POST)
+	public String addUser(Model model, Usuario usuario){
+		uS.addUser(usuario);
+		System.out.println("AGREGADO ");
 		
-		try{
-		uS.addUser(username, name, password, enabled);
-		model.addAttribute("us", "USUARIO AGREGADO");
+		return "addUserR";
 		
-		}catch(Exception err){
-		model.addAttribute("us", "USUARIO NO AGREGADO "+ err.getMessage());
-		}
-		return "hola";
-		
-	}*/
+	}
 }
 
 /*
@@ -105,4 +101,10 @@ u.setName("Victor de la Cruz");
 u.setUsername("5555555555");
 u.setPassword(encoder.encodePassword("123456", u.getUsername()));
 if(usuarioDao.saveUsuario(u))
-	System.out.println("Usuario guardado en bd");*/
+	System.out.println("Usuario guardado en bd");
+	
+	*
+	*value = "username",required = true)String username,
+	@RequestParam(value = "name",required = true)String name,@RequestParam(value = "password",required = true)
+	String password, @RequestParam(value = "enabled",required = true)boolean enabled
+	*/

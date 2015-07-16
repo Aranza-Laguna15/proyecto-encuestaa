@@ -6,10 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Table(name="users")
-
 public class Usuario {
 	@Id
 	@Column(name="username")
@@ -24,12 +24,14 @@ public class Usuario {
 	@Column(name="enabled")
 	private boolean enabled;
 	
-	/*public Usuario() {
-		this.username = "5555555555";
-		this.name = "Victor de la Cruz Gonzalez";
-		this.password = "12345678";
+	public Usuario(){}
+	
+	public Usuario(String username,String name, String password, boolean enabled) {
+		this.username = username;
+		this.name = name;
+		this.password = password;
 		this.enabled = true;
-	}*/
+	}
 	
 	public String getUsername() {
 		return username;
