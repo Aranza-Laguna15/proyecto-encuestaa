@@ -10,6 +10,9 @@
 <title>USERS</title>
  <link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
 <link href="bootstrap-3.3.4-dist/css/dashboard.css" rel="stylesheet">
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 
@@ -25,10 +28,10 @@
 <td><c:out value="${us.enabled}"/></td>
 <td><button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#gridSystemModal" >
 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-</button> / <button type="button" class="btn btn-default" aria-label="Left Align">
+</button> / <a type="button" class="btn btn-default" aria-label="Left Align" href="<c:url value='/delete-${us.username}-us' />">
   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-</button></td></tr>
-
+</a></td></tr>
+<!-- data-toggle="modal" data-target="#modaldelete" -->
 </c:forEach>
 </table>
 </div>
@@ -63,6 +66,24 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<div class="modal" id="modaldelete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">¿ELIMINAR USUARIO?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
+       <form:form commandName="usuario" action="" method="post" >
+        <button type="button" class="btn btn-primary" >ELIMINAR</button>
+    </form:form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

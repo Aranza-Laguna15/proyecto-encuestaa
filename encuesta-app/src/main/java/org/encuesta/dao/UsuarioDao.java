@@ -4,13 +4,14 @@ import java.util.List;
 
 import org.encuesta.domain.Usuario;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public interface UsuarioDao {
 	
-	public void saveUsuario(Usuario usuario);
-	boolean editUsuario(Usuario usuario);
+	public Usuario saveUsuario(Usuario user);
+	public void editUsuario(Usuario usuario);
+	public Usuario getUsername(String username);
+	public void deleteUser(String username);
 	Usuario findUsuario(String username,String pwd);
 	public void setNombre(String username);
 	public List<Usuario> getlista();

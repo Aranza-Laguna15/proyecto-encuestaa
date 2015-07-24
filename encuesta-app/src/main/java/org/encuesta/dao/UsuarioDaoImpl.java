@@ -1,63 +1,76 @@
 package org.encuesta.dao;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.encuesta.domain.Usuario;
+import org.encuesta.dao.UsuarioDao;
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
 @Repository
 public class UsuarioDaoImpl implements UsuarioDao{
 public List<Usuario> result,fechas;
 	
-public EntityManager em;
-	
-	@PersistenceContext
-	public void setEm(EntityManager em) {
-		this.em = em;
-	}
+@PersistenceContext
+private EntityManager em;
+private ShaPasswordEncoder encoder;
 
-	
-	public void saveUsuario(Usuario usuario) {
-		try{
-			em.persist(usuario);
-			System.out.println("AGREGADO ");
+public void setEm(EntityManager em) {
+	this.em=em;
+	}  	
+//u.setPassword(encoder.encodePassword("123456", u.getUsername()));
+@Transactional
+	public Usuario saveUsuario(Usuario user) {
+	try{
+		String pass=user.getPassword();
+		System.out.println("PASS: "+pass);
+		user.setEnabled(true);
+		//user.setPassword(encoder.encodePassword(pass, user.getUsername()));
+		//System.out.println("PASSWORD: "+ user.getPassword());
+		System.out.println("Usuario "+user);
+			em.persist(user);
+			em.flush();
+			System.out.println("AGREGADO 1 "+ user);
+			return user;
+			
 		}catch(Exception ex){
 			ex.printStackTrace();
 			System.out.println("ERROR "+ex.getLocalizedMessage());
-		}
 	}
-	/*@Transactional(readOnly=false)
-	public boolean saveUsuario(Usuario usuario) {
-		try{
-			em.persist(usuario);
-			return true;
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-		return false;
-	}*/
+	return null;
+}
 
-	@Transactional
-	public boolean editUsuario(Usuario usuario) {
+	public void editUsuario(Usuario usuario) {
 		try{
 			em.merge(usuario);
-			return true;
 		}catch(Exception ex){}
-		return false;
 	}
-	/*public Usuario getUser(String username) {
-		return (Usuario) em.getClass(Usuario.class,username);
-	}
-
-	public void deleteUsuario(String username) {
-		Usuario usuario=
-		
-	}*/
 	
-	 @SuppressWarnings("unchecked")
+	public Usuario getUsername(String username){
+		Usuario user=(Usuario)em.find(Usuario.class, new String(username));
+		System.out.print("Usuario getUsername" + user);
+		return user;
+	}
+	
+	public void deleteUser(String username) {
+		try{
+		Usuario user=(Usuario)em.find(Usuario.class, new String(username));
+		user.setEnabled(false);
+		if(null!= user){
+			em.remove(user);
+		}
+		System.out.print("Usuario eliminado correctamente: " + user);
+		}catch(Exception err){
+		System.out.print("Error Eliminado" + err);
+		}
+		}
+	
+
+@SuppressWarnings("unchecked")
 	public Usuario findUsuario(String username, String pwd) {
 		try{
 		List<Usuario> resultr= (List<Usuario>) em.createQuery("SELECT us FROM Usuario us WHERE us.username=:user AND us.password=:pwd AND us.enabled=true ")
@@ -68,7 +81,6 @@ public EntityManager em;
 		return null;
 	}
 	
-	@Transactional(readOnly=true)
 	@SuppressWarnings("unchecked")
 	public List<Usuario> getlista() {
 		System.out.println("hola 1");
@@ -87,27 +99,11 @@ public EntityManager em;
 			
 			}catch(Exception ex){}
 	}
+
 	public List<Usuario> getlistaEncontrados() {
 		return result;
 	}
 
-
-	/*public void insertUser(String username, String name, String password,
-			boolean enabled) {
-			try{
-			
-			em.createQuery("INSERT INTO Usuario us VALUES (us.username:=user, name:=name, password:=password,enabled:=enabled)")
-				.setParameter("user", username)
-				.setParameter("name", name)
-				.setParameter("password", password)
-				.setParameter("enabled",enabled);
-			
-			}catch(Exception ex){}
-		
-	}*/
-
 	
-
-
-	}
+}
 

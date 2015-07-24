@@ -2,9 +2,6 @@ package org.encuesta.service;
 
 
 import java.util.List;
-
-import javax.faces.bean.ManagedBean;
-
 import org.encuesta.dao.UsuarioDao;
 import org.encuesta.dao.UsuarioDaoDel;
 import org.encuesta.dao.UsuarioDaoEdit;
@@ -14,10 +11,11 @@ import org.encuesta.domain.UsuariosDelete;
 import org.encuesta.domain.UsuariosEdit;
 import org.encuesta.domain.UsuariosNew;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-@ManagedBean(name="username")
-@Component
+
+
+@Service
 public class UsuarioService {
 	
 	@Autowired
@@ -29,30 +27,33 @@ public class UsuarioService {
 	@Autowired
 	public UsuarioDaoNew usuarioDaoNew;
 	
+	@Transactional
 	public void setUsuario(UsuarioDao usuarioDao ){
 		this.usuarioDao=usuarioDao;
 	}
-	
+	@Transactional
 	public List<Usuario> getUsuario(){
 		return usuarioDao.getlista();
 	}
 	/*
 	 * 
 	 */
+	@Transactional
 	public void setUsuariosDelete(UsuarioDaoDel usuarioDaoDel ){
 		this.usuarioDaoDel=usuarioDaoDel;
 	}
-	
+	@Transactional
 	public List<UsuariosDelete> getUsuariosDelete(){
 		return usuarioDaoDel.getlistaEliminados();
 	}
 	/*
 	 * 
 	 */
+	@Transactional
 	public void setUsuariosEdit(UsuarioDaoEdit usuarioDaoEdit ){
 		this.usuarioDaoEdit=usuarioDaoEdit;
 	}
-	
+	@Transactional
 	public List<UsuariosEdit> getUsuariosEdit(){
 		return usuarioDaoEdit.getlistaEditados();
 	}
@@ -60,9 +61,11 @@ public class UsuarioService {
 	/*
 	 * 
 	 */
+	@Transactional
 	public void setUsuariosNew(UsuarioDaoNew usuarioDaoNew ){
 		this.usuarioDaoNew=usuarioDaoNew;
 	}
+	@Transactional
 	public List<UsuariosNew> getUsuariosNew(){
 		return usuarioDaoNew.getlistaNuevos();
 	}
@@ -70,21 +73,32 @@ public class UsuarioService {
 	/*
  * 
  */
+	@Transactional
 	public void setUsuarioNombre(String username){
 		this.usuarioDao.setNombre(username);
 	}
-	
+	@Transactional
 	public List<Usuario> getListaEncontrado() {
 		return usuarioDao.getlistaEncontrados();
 		
 	}
 /*
- * 
+ * ADD USER
  */
+	@Transactional
 	public void addUser(Usuario usuario){
-		this.usuarioDao.saveUsuario(usuario);
+		usuarioDao.saveUsuario(usuario);
 	}
-	
-	
+	/*
+	 * DELETE USER
+	 */
+	@Transactional
+	public Usuario setUserame(String username){
+		return usuarioDao.getUsername(username);
+	}
+	@Transactional
+	public void deleteUser(String username){
+		usuarioDao.deleteUser(username);
+	}
 	
 }

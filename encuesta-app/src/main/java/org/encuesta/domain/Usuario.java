@@ -4,10 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.transaction.annotation.Transactional;
 
+@XmlRootElement
 @Entity
 @Table(name="users")
 public class Usuario {
@@ -26,7 +26,7 @@ public class Usuario {
 	
 	public Usuario(){}
 	
-	public Usuario(String username,String name, String password, boolean enabled) {
+	public Usuario(String username,boolean enabled, String name, String password) {
 		this.username = username;
 		this.name = name;
 		this.password = password;

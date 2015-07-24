@@ -2,6 +2,8 @@ package org.encuesta.controllers;
 
 import java.util.List;
 
+import org.encuesta.dao.UsuarioDao;
+import org.encuesta.dao.UsuarioDaoImpl;
 import org.encuesta.domain.Usuario;
 import org.encuesta.domain.UsuariosDelete;
 import org.encuesta.domain.UsuariosEdit;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +26,7 @@ public class MainController {
 	
 	@Autowired
 	public UsuarioService uS;
+	UsuarioDaoImpl udao;
 	//private ShaPasswordEncoder encoder;
 	
 	@RequestMapping(value="/index.htm",method=RequestMethod.GET)
@@ -85,12 +89,26 @@ public class MainController {
 	   }
 	
 	@RequestMapping(value="/addUser.htm" , method=RequestMethod.POST)
-	public String addUser(Model model, Usuario usuario){
+	public String addUser(Model model,@ModelAttribute("usuario") Usuario usuario){
+		//usuario.setEnabled(true);
 		uS.addUser(usuario);
+		model.addAttribute("us","USUARIO AGREGADO");
 		System.out.println("AGREGADO ");
-		
+	
 		return "addUserR";
-		
+	}
+/*	@RequestMapping("/get/{username}")
+	public String getUser(@PathVariable String username, Model model){
+		String usuario= uS.getUserame(username);
+		model.addAttribute("usuario", usuario);
+		return "usersAll";
+	}*/
+	
+	@RequestMapping(value="/delete-{username}-us", method=RequestMethod.GET)
+	public String deleteUser(@PathVariable String username){
+	uS.deleteUser(username);
+		//model.addAttribute("us", "USUARIO ELIMINADO");
+		return "redirect:/usersAll";
 	}
 }
 
@@ -104,7 +122,7 @@ if(usuarioDao.saveUsuario(u))
 	System.out.println("Usuario guardado en bd");
 	
 	*
-	*value = "username",required = true)String username,
-	@RequestParam(value = "name",required = true)String name,@RequestParam(value = "password",required = true)
-	String password, @RequestParam(value = "enabled",required = true)boolean enabled
+	* @RequestParam(value = "username",required = true)String username,
+			@RequestParam(value = "name",required = true)String name,@RequestParam(value = "password",required = true)
+			String password, Usuario usuario)
 	*/
