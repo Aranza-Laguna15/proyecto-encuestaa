@@ -10,9 +10,7 @@
 <title>USERS</title>
  <link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
 <link href="bootstrap-3.3.4-dist/css/dashboard.css" rel="stylesheet">
-<script type="text/javascript">
 
-</script>
 </head>
 <body>
 
@@ -26,63 +24,50 @@
 <td><c:out value="${us.password}"/></td>
 <td><c:out value="${us.name}"/></td>
 <td><c:out value="${us.enabled}"/></td>
-<td><button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#gridSystemModal" >
+<td><a type="button" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#gridSystemModal_${us.username}">
 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-</button> / <a type="button" class="btn btn-default" aria-label="Left Align" href="<c:url value='/delete-${us.username}-us' />">
+</a> / <a type="button" class="btn btn-default" aria-label="Left Align" href="delete.htm?username=${us.username}" onclick="window.location.reload()">
   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 </a></td></tr>
 <!-- data-toggle="modal" data-target="#modaldelete" -->
-</c:forEach>
-</table>
-</div>
-<div id="gridSystemModal" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+<div id="gridSystemModal_${us.username}" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="gridSystemModalLabel">EDITAR USUARIO</h4>
       </div>
+      <form:form commandName="usuario" action="edit.htm" method="GET">
       <div class="modal-body">
     <div class="form-group">
       <label class="col-lg-2 control-label">Username</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" name="username" placeholder="Username"/>
+        <form:input type="text"  class="form-control" path="username" value="${us.username}" />
       </div>
        <label class="col-lg-2 control-label">Name</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" name="name" placeholder="Name"/>
+        <form:input type="text" class="form-control" path="name" value="${us.name}" required="required"/>
       </div>
        <label class="col-lg-2 control-label">Password</label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" name="password" placeholder="Password"/>
+        <form:input type="password" class="form-control" path="password" value="password" required="required"/>
       </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
-        
-        <button type="submit" class="btn btn-primary">SAVE USER</button>
+        <form:button type="submit" class="btn btn-primary" >SAVE USER</form:button>
       </div>
+         </form:form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<div class="modal" id="modaldelete">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title">¿ELIMINAR USUARIO?</h4>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
-       <form:form commandName="usuario" action="" method="post" >
-        <button type="button" class="btn btn-primary" >ELIMINAR</button>
-    </form:form>
-      </div>
-    </div>
-  </div>
+</div><!-- /.modal 
+disabled="true" -->
+</c:forEach>
+</table>
 </div>
+
+
 
 <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>

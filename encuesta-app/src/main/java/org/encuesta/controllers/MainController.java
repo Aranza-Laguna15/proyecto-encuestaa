@@ -41,6 +41,7 @@ public class MainController {
 		/*List<Usuario> usuarios=uS.getUsuario();
 		model.addAttribute("users",usuarios);
 				*/
+		model.addAttribute("usuario", new Usuario());
 		return "users";
 	}
 	
@@ -48,6 +49,7 @@ public class MainController {
 	public String usersAll(Model model){
 		List<Usuario> usuarios=uS.getUsuario();
 		model.addAttribute("users",usuarios);
+		model.addAttribute("usuario", new Usuario());
 		return "usersAll";
 	}
 	
@@ -104,11 +106,24 @@ public class MainController {
 		return "usersAll";
 	}*/
 	
-	@RequestMapping(value="/delete-{username}-us", method=RequestMethod.GET)
-	public String deleteUser(@PathVariable String username){
-	uS.deleteUser(username);
+	@RequestMapping(value="/delete", method= RequestMethod.GET)
+	public String deleteUser(@ModelAttribute("username")String username){
+	
+		uS.deleteUser(username);
+		
+		System.out.println("usuario: "+username);
 		//model.addAttribute("us", "USUARIO ELIMINADO");
-		return "redirect:/usersAll";
+		return "redirect:/usersAll.htm";
+	}
+	
+	@RequestMapping(value="/edit", method= RequestMethod.GET)
+	public String edit(@ModelAttribute("usuario")Usuario usuario, Model model){
+		
+		
+		uS.updateUser(usuario);
+		System.out.println("USUARIO EDITADO "+usuario);
+		return "redirect:/usersAll.htm";
+		
 	}
 }
 

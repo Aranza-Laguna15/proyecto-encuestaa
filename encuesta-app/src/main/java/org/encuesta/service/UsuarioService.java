@@ -36,7 +36,7 @@ public class UsuarioService {
 		return usuarioDao.getlista();
 	}
 	/*
-	 * 
+	 * GET DELETE USERS 
 	 */
 	@Transactional
 	public void setUsuariosDelete(UsuarioDaoDel usuarioDaoDel ){
@@ -47,7 +47,7 @@ public class UsuarioService {
 		return usuarioDaoDel.getlistaEliminados();
 	}
 	/*
-	 * 
+	 * GET EDIT USERS
 	 */
 	@Transactional
 	public void setUsuariosEdit(UsuarioDaoEdit usuarioDaoEdit ){
@@ -59,7 +59,7 @@ public class UsuarioService {
 	}
 	
 	/*
-	 * 
+	 * GET NEW USERS 
 	 */
 	@Transactional
 	public void setUsuariosNew(UsuarioDaoNew usuarioDaoNew ){
@@ -71,8 +71,8 @@ public class UsuarioService {
 	}
 
 	/*
- * 
- */
+	 * GET ALL USERS
+	 */
 	@Transactional
 	public void setUsuarioNombre(String username){
 		this.usuarioDao.setNombre(username);
@@ -93,12 +93,15 @@ public class UsuarioService {
 	 * DELETE USER
 	 */
 	@Transactional
-	public Usuario setUserame(String username){
-		return usuarioDao.getUsername(username);
-	}
-	@Transactional
 	public void deleteUser(String username){
 		usuarioDao.deleteUser(username);
+	}
+	/*
+	 *UPDATE USER 
+	 */
+	@Transactional
+	public void updateUser(Usuario usuario){
+		usuarioDao.editUsuario(usuario);
 	}
 	
 }

@@ -12,13 +12,18 @@
 <title>USUARIOS</title>
  <link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
 <link href="bootstrap-3.3.4-dist/css/dashboard.css" rel="stylesheet">
-
+<script> 
+function actualiza_2_frames(){ 
+   	window.parent.frames[1].location="usersAll.htm" 
+   	window.location="addUserR.htm" 
+} 
+</script>
 </head> 
 <body role="document">
 
  <h2><c:out value="${us}"/></h2>
  <ul class="pager">
-  <li><a href="addUser.htm"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Regresar</a></li>
+  <li><a href="javascript:actualiza_2_frames()" ><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Regresar</a></li>
 </ul>
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>

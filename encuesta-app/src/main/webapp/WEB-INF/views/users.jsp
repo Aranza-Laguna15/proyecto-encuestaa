@@ -36,8 +36,8 @@
 <h1 class="text-center"> U S U A R I O S </h1>
 </div>
 <ul class="nav nav-tabs" id="myTab">
-  <li><a href="#user-create" data-toggle="tab">CREAR USUARIO</a></li>
-   <li><a href="#users" data-toggle="tab">USUARIOS</a></li>
+  <li><a href="#user-create" data-toggle="tab" >CREAR USUARIO</a></li>
+   <li><a href="#users" data-toggle="tab" >USUARIOS</a></li>
   <li><a href="#user-new" data-toggle="tab">USUARIOS NUEVOS</a></li>
   <li><a href="#user-edit" data-toggle="tab">USUARIOS EDITADOS</a></li>
   <li><a href="#user-delete" data-toggle="tab">USUARIOS ELIMINADOS</a></li>
@@ -61,7 +61,7 @@
   </div>
 
 </div>
-
+<!-- onclick="window.location.reload()" -->
  
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>

@@ -46,24 +46,21 @@ public void setEm(EntityManager em) {
 
 	public void editUsuario(Usuario usuario) {
 		try{
-			em.merge(usuario);
+			Usuario user=(Usuario)em.find(Usuario.class, usuario);
+			user.setEnabled(true);
+			em.merge(user);
+			System.out.println("Usuario Editado "+ user);
 		}catch(Exception ex){}
-	}
-	
-	public Usuario getUsername(String username){
-		Usuario user=(Usuario)em.find(Usuario.class, new String(username));
-		System.out.print("Usuario getUsername" + user);
-		return user;
 	}
 	
 	public void deleteUser(String username) {
 		try{
-		Usuario user=(Usuario)em.find(Usuario.class, new String(username));
-		user.setEnabled(false);
-		if(null!= user){
+		Usuario user=(Usuario)em.find(Usuario.class, username);
+		System.out.println("User: "+user);
+		if(user!= null){
 			em.remove(user);
+			System.out.println("USUARIO ELIMINADO "+user);
 		}
-		System.out.print("Usuario eliminado correctamente: " + user);
 		}catch(Exception err){
 		System.out.print("Error Eliminado" + err);
 		}
