@@ -44,18 +44,25 @@ public void setEm(EntityManager em) {
 	return null;
 }
 
-	public void editUsuario(Usuario usuario) {
+	public Usuario editUsuario(Usuario usuario) {
 		try{
-			Usuario user=(Usuario)em.find(Usuario.class, usuario);
-			user.setEnabled(true);
-			em.merge(user);
-			System.out.println("Usuario Editado "+ user);
-		}catch(Exception ex){}
+			//Usuario user=(Usuario)em.find(Usuario.class, username);
+			usuario.setEnabled(true);
+			System.out.println("Usuario E: "+usuario);
+			em.merge(usuario);
+			System.out.println("Usuario Editado "+ usuario);
+			return usuario;
+		}catch(Exception ex){
+			ex.printStackTrace();
+			System.out.println("ERROR EDIT "+ex.getLocalizedMessage());
+		}
+		
+		return null;
 	}
 	
 	public void deleteUser(String username) {
 		try{
-		Usuario user=(Usuario)em.find(Usuario.class, username);
+			Usuario user=(Usuario)em.find(Usuario.class, username);
 		System.out.println("User: "+user);
 		if(user!= null){
 			em.remove(user);
@@ -99,6 +106,14 @@ public void setEm(EntityManager em) {
 
 	public List<Usuario> getlistaEncontrados() {
 		return result;
+	}
+	@SuppressWarnings("unchecked")
+	public Usuario finbyUsername(String username) {
+		Usuario user=(Usuario)em.find(Usuario.class, username);
+		if(((List<Usuario>) user).size()>0){
+			return user;
+		}else
+		return user;
 	}
 
 	

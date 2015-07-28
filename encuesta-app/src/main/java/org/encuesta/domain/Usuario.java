@@ -1,13 +1,20 @@
 package org.encuesta.domain;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.hibernate.validator.constraints.NotEmpty;
 
-@XmlRootElement
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
 @Table(name="users")
 public class Usuario {
@@ -23,16 +30,10 @@ public class Usuario {
 	private String password;
 	@Column(name="enabled")
 	private boolean enabled;
+	@OneToMany(fetch = FetchType.LAZY) 
+	private Set<Usuario_Role> userRole = new HashSet<Usuario_Role>(0);
 	
-	public Usuario(){}
-	
-	public Usuario(String username,boolean enabled, String name, String password) {
-		this.username = username;
-		this.name = name;
-		this.password = password;
-		this.enabled = true;
-	}
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -57,11 +58,19 @@ public class Usuario {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
+	public Set<Usuario_Role> getUserRole() {
+		return userRole;
+	}
+	public void setUserRole(Set<Usuario_Role> userRole) {
+		this.userRole = userRole;
+	}
 	
 	@Override
 	public String toString() {
 		return "Usuario [username=" + username + ", name=" + name
 				+ ", password=" + password + ", enabled=" + enabled + "]";
 	}
+	
 	
 }

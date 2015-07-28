@@ -2,7 +2,6 @@ package org.encuesta.controllers;
 
 import java.util.List;
 
-import org.encuesta.dao.UsuarioDao;
 import org.encuesta.dao.UsuarioDaoImpl;
 import org.encuesta.domain.Usuario;
 import org.encuesta.domain.UsuariosDelete;
@@ -12,10 +11,8 @@ import org.encuesta.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -92,19 +89,12 @@ public class MainController {
 	
 	@RequestMapping(value="/addUser.htm" , method=RequestMethod.POST)
 	public String addUser(Model model,@ModelAttribute("usuario") Usuario usuario){
-		//usuario.setEnabled(true);
 		uS.addUser(usuario);
 		model.addAttribute("us","USUARIO AGREGADO");
 		System.out.println("AGREGADO ");
 	
 		return "addUserR";
 	}
-/*	@RequestMapping("/get/{username}")
-	public String getUser(@PathVariable String username, Model model){
-		String usuario= uS.getUserame(username);
-		model.addAttribute("usuario", usuario);
-		return "usersAll";
-	}*/
 	
 	@RequestMapping(value="/delete", method= RequestMethod.GET)
 	public String deleteUser(@ModelAttribute("username")String username){
@@ -117,13 +107,11 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/edit", method= RequestMethod.GET)
-	public String edit(@ModelAttribute("usuario")Usuario usuario, Model model){
-		
-		
+	public String edit(@ModelAttribute("usuario") Usuario usuario, Model model,@RequestParam(value="username")String username){
 		uS.updateUser(usuario);
+		System.out.println("USERNAME EDITADO "+username);
 		System.out.println("USUARIO EDITADO "+usuario);
 		return "redirect:/usersAll.htm";
-		
 	}
 }
 

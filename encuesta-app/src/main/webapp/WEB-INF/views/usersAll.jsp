@@ -10,7 +10,12 @@
 <title>USERS</title>
  <link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
 <link href="bootstrap-3.3.4-dist/css/dashboard.css" rel="stylesheet">
-
+<script> 
+function actualiza_2_frames(){ 
+   	window.parent.frames[1].location="usersEdit.htm" 
+   	window.location="usersAll.htm" 
+} 
+</script>
 </head>
 <body>
 
@@ -40,9 +45,9 @@
       <form:form commandName="usuario" action="edit.htm" method="GET">
       <div class="modal-body">
     <div class="form-group">
-      <label class="col-lg-2 control-label">Username</label>
-      <div class="col-lg-10">
-        <form:input type="text"  class="form-control" path="username" value="${us.username}" />
+      <h2 class="jaja"> <c:out value="${us.username}"/></h2>
+      <div class="col-lg-10" style='display:none;'>
+        <form:input type="text" class="form-control" path="username" value="${us.username}" name="username"/>
       </div>
        <label class="col-lg-2 control-label">Name</label>
       <div class="col-lg-10">
@@ -50,19 +55,19 @@
       </div>
        <label class="col-lg-2 control-label">Password</label>
       <div class="col-lg-10">
-        <form:input type="password" class="form-control" path="password" value="password" required="required"/>
+        <form:input type="password" class="form-control" path="password" required="required"/>
       </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
-        <form:button type="submit" class="btn btn-primary" >SAVE USER</form:button>
+        <form:button type="submit" class="btn btn-primary" href="javascript:actualiza_2_frames()">SAVE USER</form:button>
       </div>
          </form:form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
-</div><!-- /.modal 
-disabled="true" -->
+</div><!-- /.modal -->
+
 </c:forEach>
 </table>
 </div>

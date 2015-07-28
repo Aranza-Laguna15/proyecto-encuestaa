@@ -12,6 +12,13 @@
 <link rel="stylesheet" href="bootstrap-3.3.4-dist/css/bootstrap.min.css" >
 <link href="bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
  <link href="bootstrap-3.3.4-dist/css/dashboard.css" rel="stylesheet">
+ <script>
+ $(document).ready(function(){
+    setTimeout(function() {
+        $.blockUI({message: $('#loginForm')});
+        }  , 50);
+});
+</script>
 </head> 
 <body role="document">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -55,8 +62,10 @@
 <div class="page-header">
 
 </div>
-<a class="btn btn-default" href="addUser.htm" role="button">Usuarios &raquo;</a>
-<br>
+<div id="loginForm" style="display:none">
+   <p><label>Username:</label><input type="text" name="demo1" /></p>
+   <p><label>Password:</label><input type="text" name="demo1" /></p>
+        </div>
 
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>

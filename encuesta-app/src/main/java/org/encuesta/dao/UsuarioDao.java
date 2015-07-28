@@ -9,12 +9,13 @@ import org.springframework.stereotype.Component;
 public interface UsuarioDao {
 	
 	public Usuario saveUsuario(Usuario user);
-	public void editUsuario(Usuario usuario);
+	public Usuario editUsuario(Usuario usuario);
 	public void deleteUser(String username);
 	Usuario findUsuario(String username,String pwd);
 	public void setNombre(String username);
 	public List<Usuario> getlista();
 	public List<Usuario> getlistaEncontrados();
+	public Usuario finbyUsername(String username);
 	
 }
 /*public void deleteUsuario(String username);
