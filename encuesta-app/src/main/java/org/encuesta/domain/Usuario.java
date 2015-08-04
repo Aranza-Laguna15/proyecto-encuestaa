@@ -1,36 +1,36 @@
 package org.encuesta.domain;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.security.core.GrantedAuthority;
 
 @Entity
-@Table(name="users")
+@Table(name="users", catalog="encuesta")
 public class Usuario {
 	@Id
 	@Column(name="username")
 	@NotEmpty(message="Ingrese el nombre de usuario")
 	private String username;
+	
 	@Column(name="name")
 	@NotEmpty(message="Ingrese el nombre del usuario")
 	private String name;
+	
 	@Column(name="password")
 	@NotEmpty(message="Ingrese la clave del usuario")
 	private String password;
+	
 	@Column(name="enabled")
-	private boolean enabled;
-	@OneToMany(fetch = FetchType.LAZY) 
+	private boolean enabled; 
+	
+	 @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")  
 	private Set<Usuario_Role> userRole = new HashSet<Usuario_Role>(0);
 	
 

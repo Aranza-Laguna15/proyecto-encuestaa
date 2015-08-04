@@ -17,7 +17,7 @@ public List<Usuario> result,fechas;
 	
 @PersistenceContext
 private EntityManager em;
-private ShaPasswordEncoder encoder;
+private ShaPasswordEncoder encoder=new ShaPasswordEncoder(256);
 
 public void setEm(EntityManager em) {
 	this.em=em;
@@ -29,8 +29,8 @@ public void setEm(EntityManager em) {
 		String pass=user.getPassword();
 		System.out.println("PASS: "+pass);
 		user.setEnabled(true);
-		//user.setPassword(encoder.encodePassword(pass, user.getUsername()));
-		//System.out.println("PASSWORD: "+ user.getPassword());
+		user.setPassword(encoder.encodePassword(pass, user.getUsername()));
+		System.out.println("PASSWORD: "+ user.getPassword());
 		System.out.println("Usuario "+user);
 			em.persist(user);
 			em.flush();
@@ -47,6 +47,8 @@ public void setEm(EntityManager em) {
 	public Usuario editUsuario(Usuario usuario) {
 		try{
 			//Usuario user=(Usuario)em.find(Usuario.class, username);
+			String pass=usuario.getPassword();
+			usuario.setPassword(encoder.encodePassword(pass, usuario.getUsername()));
 			usuario.setEnabled(true);
 			System.out.println("Usuario E: "+usuario);
 			em.merge(usuario);
@@ -62,9 +64,13 @@ public void setEm(EntityManager em) {
 	
 	public void deleteUser(String username) {
 		try{
+			Usuario usuario=(Usuario)em.find(Usuario.class, username);
+		usuario.setEnabled(false);
+		em.persist(usuario);
+		System.out.println("USUARIO: " +usuario);
+		
+		if(usuario!= null && usuario.isEnabled()==false){
 			Usuario user=(Usuario)em.find(Usuario.class, username);
-		System.out.println("User: "+user);
-		if(user!= null){
 			em.remove(user);
 			System.out.println("USUARIO ELIMINADO "+user);
 		}
@@ -107,12 +113,9 @@ public void setEm(EntityManager em) {
 	public List<Usuario> getlistaEncontrados() {
 		return result;
 	}
-	@SuppressWarnings("unchecked")
+	
 	public Usuario finbyUsername(String username) {
 		Usuario user=(Usuario)em.find(Usuario.class, username);
-		if(((List<Usuario>) user).size()>0){
-			return user;
-		}else
 		return user;
 	}
 

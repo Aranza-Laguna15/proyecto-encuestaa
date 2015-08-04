@@ -1,26 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"  
- xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
- xsi:schemaLocation="http://www.springframework.org/schema/beans  
- http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
- http://www.springframework.org/schema/security  
- http://www.springframework.org/schema/security/spring-security-3.2.xsd">  
-  
+ 			 xmlns:beans="http://www.springframework.org/schema/beans" 
+ 			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+ 			 xmlns:p="http://www.springframework.org/schema/p"
+ 			 xmlns:util="http://www.springframework.org/schema/util"
+ 			 xsi:schemaLocation="http://www.springframework.org/schema/beans  
+ 			 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+ 			 http://www.springframework.org/schema/security  
+ 			 http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+ 
  <!-- enable use-expressions -->  
- <http auto-config="true" use-expressions="true">  
-  <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />  
-  <intercept-url pattern="/user**" access="hasRole('ROLE_USER')" />  
+ <http auto-config="true">  
+ <!-- <intercept-url pattern="/j_spring_security_check" access="isAnonymous()"/>  -->
+ <intercept-url pattern="/users.htm" access="hasRole('ROLE_ADMIN')" />  
+ <intercept-url pattern="/reportes.htm" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/addUser.htm" access="isAuthenticated()" />
+ <intercept-url pattern="/addUserR.htm" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/findbyDateLoc.htm" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/findbyDateLocR.htm" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/findbyDateUser.htm" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/findbyDateUserR.htm" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/findbyUserLoc.htm" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/findbyUserLocR.htm" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/usersAll.htm" access="isAuthenticated()" />
+ <intercept-url pattern="/usersDel.htm" access="hasRole('ROLE_ADMIN')" /> 
+ <intercept-url pattern="/usersEdit.htm" access="hasRole('ROLE_ADMIN')" />
+ <intercept-url pattern="/usersNew.htm" access="hasRole('ROLE_ADMIN')" />
+ 
+ 
+ 
+  <!-- access denied page --> 
+  <access-denied-handler error-page="/403.htm" />
   
-  <!-- access denied page -->  
-  <access-denied-handler error-page="/403" />  
-  <form-login login-page="/login" authentication-failure-url="/login?error"  
-   username-parameter="username" password-parameter="password" />  
-  <logout logout-success-url="/login?logout" />  
+  <form-login login-page="/login.htm" login-processing-url="/j_spring_security_check"  
+  username-parameter="username" password-parameter="password" 
+   authentication-failure-url="/login.htm?error" />  
+  
+  <logout logout-url="/j_spring_security_logout" logout-success-url="/index.htm" 
+  delete-cookies="JSESSIONID" invalidate-session="true" /> 
   <!-- enable csrf protection -->  
   <csrf />  
+   
  </http>  
   
- <authentication-manager>  
-  <authentication-provider user-service-ref="loginService" />  
+ <authentication-manager alias="authenticationManager"> 
+  
+  <authentication-provider user-service-ref="loginService" >
+ </authentication-provider>
+ 
  </authentication-manager>  
   
 </beans:beans>  

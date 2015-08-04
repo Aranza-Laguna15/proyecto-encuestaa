@@ -23,7 +23,7 @@
 <td><c:out value="${us.username}"/></td>
 <td><c:out value="${us.password}"/></td>
 <td><c:out value="${us.name}"/></td>
-<td><c:out value="${us.enabled}"/></td>
+<td>false</td>
 <td><c:out value="${us.fecha_eliminacion}"/></td>
 <td><c:out value="${us.eliminado_por}"/></td></tr>
 

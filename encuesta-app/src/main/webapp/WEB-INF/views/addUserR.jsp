@@ -1,8 +1,6 @@
 <%@ page language="java" import="javax.servlet.jsp.PageContext" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@page import="org.encuesta.controllers.*"  %>
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -15,7 +13,7 @@
 <script> 
 function actualiza_2_frames(){ 
    	window.parent.frames[1].location="usersAll.htm" 
-   	window.location="addUserR.htm" 
+   	window.location="addUser.htm" 
 } 
 </script>
 </head> 

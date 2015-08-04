@@ -22,7 +22,7 @@ function actualiza_2_frames(){
 <h2 class="sub-header"> USUARIOS </h2>
 <div class="table-responsive">
 <table class="table table-striped">
-<tr><th> USERNAME</th><th> PASSWORD</th><th> NAME</th><th> ENABLED</th><th>ACTION</th></tr>
+<tr><th> USERNAME</th><th> PASSWORD</th><th> NOMBRE</th><th> ENABLED</th><th>ACCIÓN</th></tr>
 
 <c:forEach items="${users}" var="us">
 <tr><td><c:out value="${us.username}"/></td>

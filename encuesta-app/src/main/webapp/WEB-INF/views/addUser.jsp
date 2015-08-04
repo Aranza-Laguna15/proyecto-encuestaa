@@ -23,16 +23,16 @@
       <div class="col-lg-10">
         <form:input class="form-control" path="username" placeholder="Username" required="required"/>
       </div>
-       <label class="col-lg-2 control-label">Name</label>
+       <label class="col-lg-2 control-label">Nombre</label>
       <div class="col-lg-10">
         <form:input class="form-control" path="name" placeholder="Name" required="required"/>
       </div>
-       <label class="col-lg-2 control-label">Password</label>
+       <label class="col-lg-2 control-label">Contraseña</label>
       <div class="col-lg-10">
         <form:input type="password" class="form-control" path="password" placeholder="Password" required="required"/>
       </div><br>
       <div class="col-lg-10 col-lg-offset-2">
-        <form:button type="submit" class="btn btn-warning">Submit</form:button>
+        <form:button type="submit" class="btn btn-warning">GUARDAR</form:button>
       </div>
       </div>
 </form:form>

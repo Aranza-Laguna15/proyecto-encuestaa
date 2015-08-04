@@ -9,33 +9,33 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 public class LoginController {
 
-	@RequestMapping("/login")
-	public Model getLoginForm(@ModelAttribute Usuario usuario, @RequestParam(value="error", required=false) String error,
+	@RequestMapping(value="/login.htm", method = RequestMethod.GET)
+	public String getLoginForm(@ModelAttribute Usuario usuario, @RequestParam(value="error", required=false) String error,
 			@RequestParam(value="logout", required=false)String logout, Model model){
 		String message="";
 		if (error != null) {  
 			   message = "USUARIO o CONTRASEÑA INCORRECTAS";  
 			  } else if (logout != null) {  
 			   message = "BIENVENIDO";  
+			   return "principal.htm";
 			  }  
-			 return model.addAttribute("login", message);  	 
+			 model.addAttribute("message", message);  	
+			 return "login";
 		}
-	@RequestMapping("/admin**")
+	@RequestMapping("/principal**")
 	public String getAdminProfile(){
-		return "index.htm";
+		return "principal.htm";
 	}
-	@RequestMapping("/user**")
-	public String getUserProfile(){
-		return "index.htm";
-	}
-	@RequestMapping("/403")  
-	 public Model getAccessDenied(Model model) {  
+	
+	@RequestMapping("/403.htm")  
+	 public String getAccessDenied(Model model) {  
 	  Authentication auth = SecurityContextHolder.getContext()  
 	    .getAuthentication();  
 	  String username = "";  
@@ -44,6 +44,7 @@ public class LoginController {
 	   username = userDetail.getUsername();  
 	  }  
 	  
-	  return model.addAttribute("403", username);  
+	  model.addAttribute("403", username);  
+	  return "403";
 	 }  
   }

@@ -10,6 +10,7 @@ import org.encuesta.domain.UsuariosNew;
 import org.encuesta.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,7 +25,7 @@ public class MainController {
 	@Autowired
 	public UsuarioService uS;
 	UsuarioDaoImpl udao;
-	//private ShaPasswordEncoder encoder;
+	//private ShaPasswordEncoder encoder=new ShaPasswordEncoder(256);
 	
 	@RequestMapping(value="/index.htm",method=RequestMethod.GET)
 	public String adminIndex(Model model){
@@ -89,6 +90,7 @@ public class MainController {
 	
 	@RequestMapping(value="/addUser.htm" , method=RequestMethod.POST)
 	public String addUser(Model model,@ModelAttribute("usuario") Usuario usuario){
+		
 		uS.addUser(usuario);
 		model.addAttribute("us","USUARIO AGREGADO");
 		System.out.println("AGREGADO ");
@@ -101,8 +103,6 @@ public class MainController {
 	
 		uS.deleteUser(username);
 		
-		System.out.println("usuario: "+username);
-		//model.addAttribute("us", "USUARIO ELIMINADO");
 		return "redirect:/usersAll.htm";
 	}
 	

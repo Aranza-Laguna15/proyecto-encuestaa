@@ -71,14 +71,4 @@
              <ws:service bean="#encuesta"/>
          </wss:service>        
      </wss:binding>-->
-    <bean id="sessionFactory"  
-  class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
-  <property name="dataSource" ref="dataSource" />  
-  <property name="annotatedClasses">  
-   <list>  
-    <value>org.encuesta.domain.Usuario</value>  
-    <value>org.encuesta.domain.Usuario_Role</value>  
-   </list>  
-  </property>  
-  </bean>
 </beans>

@@ -26,9 +26,7 @@
           <a class="navbar-brand" href=<c:url value="index.htm"/>>Encuesta</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-        
         </div><!--/.navbar-collapse -->
-        
       </div>
     </nav>
     
@@ -55,7 +53,7 @@
 </div>
 <div class="page-header">
 
-</div>
+</div> 
 
  <!-- Librería jQuery requerida por los plugins de JavaScript -->
  <script src="bootstrap-3.3.4-dist/libs/jquery-1.11.3.min.js"></script>
