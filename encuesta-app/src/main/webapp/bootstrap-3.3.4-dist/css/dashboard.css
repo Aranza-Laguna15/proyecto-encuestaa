@@ -160,6 +160,8 @@ input[type="date"]{
 }
 .jaja{
 	text-align:center;
+	align:center;
+	position:center;
 }
 
 /* --------------SIGNIN----------------------- */

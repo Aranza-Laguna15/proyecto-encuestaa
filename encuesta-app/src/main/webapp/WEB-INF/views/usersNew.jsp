@@ -15,8 +15,8 @@
 <h2 class="sub-header"> USUARIOS NUEVOS</h2>
  <div class="table-responsive">
 <table class="table table-striped">
-<tr><th style="width: 30px; "> ID</th><th style="width: 150px; "> USERNAME</th><th style="width: 150px; "> PASSWORD</th>
-<th style="width: 150px; "> NAME</th><th style="width: 150px; "> ENABLED</th><th style="width: 150px; "> FECHA CREACIÓN</th></tr>
+<tr><th style="width: 30px; "> ID</th><th style="width: 150px; "> USERNAME</th><th style="width: 150px; "> CONTRASEÑA</th>
+<th style="width: 150px; "> NOMBRE</th><th style="width: 150px; "> ENABLED</th><th style="width: 150px; "> FECHA CREACIÓN</th></tr>
 <c:forEach items="${user_nuevos}" var="us">
 <tr><td><c:out value="${us.id_historial}"/></td>
 <td><c:out value="${us.username}"/></td>

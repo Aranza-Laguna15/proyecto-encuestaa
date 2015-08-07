@@ -15,6 +15,10 @@ function actualiza_2_frames(){
    	window.parent.frames[1].location="usersEdit.htm" 
    	window.location="usersAll.htm" 
 } 
+function actualiza_delete(){
+window.parent.frames[1].location="usersDel.htm" 
+   	window.location="usersAll.htm" 
+}
 </script>
 </head>
 <body>
@@ -31,7 +35,7 @@ function actualiza_2_frames(){
 <td><c:out value="${us.enabled}"/></td>
 <td><a type="button" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#gridSystemModal_${us.username}">
 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-</a> / <a type="button" class="btn btn-default" aria-label="Left Align" href="delete.htm?username=${us.username}" onclick="window.location.reload()">
+</a> / <a type="button" class="btn btn-default" aria-label="Left Align" href="delete.htm?username=${us.username}" onclick="javascript:actualiza_delete()">
   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 </a></td></tr>
 <!-- data-toggle="modal" data-target="#modaldelete" -->
@@ -49,19 +53,19 @@ function actualiza_2_frames(){
       <div class="col-lg-10" style='display:none;'>
         <form:input type="text" class="form-control" path="username" value="${us.username}" name="username"/>
       </div>
-       <label class="col-lg-2 control-label">Name</label>
+       <label class="col-lg-2 control-label">NOMBRE</label>
       <div class="col-lg-10">
         <form:input type="text" class="form-control" path="name" value="${us.name}" required="required"/>
       </div>
-       <label class="col-lg-2 control-label">Password</label>
+       <label class="col-lg-2 control-label">CONTRASEÑA</label>
       <div class="col-lg-10">
         <form:input type="password" class="form-control" path="password" required="required"/>
       </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
-        <form:button type="submit" class="btn btn-primary" href="javascript:actualiza_2_frames()">SAVE USER</form:button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+        <form:button type="submit" class="btn btn-primary" href="javascript:actualiza_2_frames()">GUARDAR USUARIO</form:button>
       </div>
          </form:form>
     </div><!-- /.modal-content -->

@@ -29,16 +29,12 @@ public class MainController {
 	
 	@RequestMapping(value="/index.htm",method=RequestMethod.GET)
 	public String adminIndex(Model model){
-		/*List<Usuario> usuarios=uS.getUsuario();
-		model.addAttribute("users",usuarios);
-				*/
+		
 		return "index";
 	}
 	@RequestMapping(value="/users.htm",method=RequestMethod.GET)
 	public String users(Model model){
-		/*List<Usuario> usuarios=uS.getUsuario();
-		model.addAttribute("users",usuarios);
-				*/
+		
 		model.addAttribute("usuario", new Usuario());
 		return "users";
 	}
@@ -125,7 +121,4 @@ if(usuarioDao.saveUsuario(u))
 	System.out.println("Usuario guardado en bd");
 	
 	*
-	* @RequestParam(value = "username",required = true)String username,
-			@RequestParam(value = "name",required = true)String name,@RequestParam(value = "password",required = true)
-			String password, Usuario usuario)
 	*/

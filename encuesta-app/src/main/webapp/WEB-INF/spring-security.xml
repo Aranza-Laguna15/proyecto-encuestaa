@@ -11,6 +11,9 @@
  
  <!-- enable use-expressions -->  
  <http auto-config="true">  
+ <headers>
+  <frame-options policy="SAMEORIGIN"/>
+</headers>
  <!-- <intercept-url pattern="/j_spring_security_check" access="isAnonymous()"/>  -->
  <intercept-url pattern="/users.htm" access="hasRole('ROLE_ADMIN')" />  
  <intercept-url pattern="/reportes.htm" access="hasRole('ROLE_ADMIN')" />
@@ -46,6 +49,9 @@
  <authentication-manager alias="authenticationManager"> 
   
   <authentication-provider user-service-ref="loginService" >
+  <password-encoder hash="sha-256">
+  <salt-source user-property="username"/>
+  </password-encoder>
  </authentication-provider>
  
  </authentication-manager>  

@@ -31,6 +31,7 @@ public void setEm(EntityManager em) {
 		user.setEnabled(true);
 		user.setPassword(encoder.encodePassword(pass, user.getUsername()));
 		System.out.println("PASSWORD: "+ user.getPassword());
+	
 		System.out.println("Usuario "+user);
 			em.persist(user);
 			em.flush();
