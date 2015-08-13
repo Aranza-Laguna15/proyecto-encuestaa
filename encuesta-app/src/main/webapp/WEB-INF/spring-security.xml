@@ -36,7 +36,7 @@
   <access-denied-handler error-page="/403.htm" />
   
   <form-login login-page="/login.htm" login-processing-url="/j_spring_security_check"  
-  username-parameter="username" password-parameter="password" 
+  username-parameter="username" password-parameter="password"  default-target-url="/home.htm" always-use-default-target="true"
    authentication-failure-url="/login.htm?error" />  
   
   <logout logout-url="/j_spring_security_logout" logout-success-url="/index.htm" 
