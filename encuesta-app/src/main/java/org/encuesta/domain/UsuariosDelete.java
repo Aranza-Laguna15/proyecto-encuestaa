@@ -12,7 +12,6 @@ import javax.persistence.Table;
 public class UsuariosDelete {
 	@Id
 	@Column(name = "id_eliminado")
-	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id_eliminado;
 	
 	@Column(name="username")

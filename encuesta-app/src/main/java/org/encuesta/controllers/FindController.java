@@ -26,11 +26,9 @@ public class FindController {
 		eS.setFechUser(d1, d2, username);
 		
 		if(eS.getFechUser()==null){
-		System.out.println("ERROR *-* NO ENCONTRADO");
 		model.addAttribute("ERROR", "NO SE ENCONTRARON ENCUESTAS");
 		return null;
 		}else{
-			System.out.println("DE: "+d1+" HASTA: "+d2+" USERNAME: "+username);
 			model.addAttribute("ef",eS.getFechUser());
 		}
 		return "findbyDateUserR";
@@ -44,11 +42,9 @@ public class FindController {
 	 public String findDatesLoc(Model model,@RequestParam(value = "fec1",required = true)String fec1, @RequestParam(value="fec2", required = true) String fec2){
 		eS.setFecha(fec1, fec2);
 		if(eS.getbydate()==null){
-		System.out.println("ERROR *-* NO ENCONTRADO");
 		model.addAttribute("ERROR", "NO SE ENCONTRARON ENCUESTAS");
 		return null;
 	}else{
-			System.out.println("DE: "+fec1+" HASTA: "+fec2);
 			model.addAttribute("ef",eS.getbydate());
 		}
 		return "findbyDateLocR";
@@ -62,12 +58,10 @@ public class FindController {
 	 public String finduUerLoc(Model model,@RequestParam(value = "user",required = true)String user){
 		eS.setUser(user);
 		if(eS.getUsers()==null){
-		System.out.println("ERROR *-* NO ENCONTRADO");
 		model.addAttribute("ERROR", "NO SE ENCONTRARON ENCUESTAS");
 		return null;
-	}else{
+		}else{
 			model.addAttribute("user",eS.getUsers());
-			System.out.println("USERS LOC"+eS.getUsers() );
 		}
 		return "findbyUserLocR";
 	 }

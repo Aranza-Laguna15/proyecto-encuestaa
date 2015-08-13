@@ -6,8 +6,6 @@
 	version="1.0">
 	<persistence-unit name="encuestaPU" transaction-type="RESOURCE_LOCAL">
 	 <provider>org.hibernate.ejb.HibernatePersistence</provider>
-<!-- 	 <properties>
-     <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-	 </properties> -->
+
 	</persistence-unit>
 </persistence>

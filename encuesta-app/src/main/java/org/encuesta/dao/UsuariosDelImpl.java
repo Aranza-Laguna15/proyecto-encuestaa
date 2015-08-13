@@ -38,10 +38,8 @@ public class UsuariosDelImpl implements UsuarioDaoDel{
 	@Transactional(readOnly=true)
 	@SuppressWarnings("unchecked")
 	public List<UsuariosDelete> getlistaEliminados() {
-		System.out.println("hola 2");
 		
 		List<UsuariosDelete> result=em.createQuery("select d from UsuariosDelete d").getResultList(); 
-		System.out.println("usuarios delete: " + result);
 		return result;
 	}
 

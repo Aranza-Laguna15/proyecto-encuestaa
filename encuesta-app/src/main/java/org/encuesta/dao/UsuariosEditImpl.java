@@ -38,10 +38,8 @@ public class UsuariosEditImpl implements UsuarioDaoEdit{
 	@Transactional(readOnly=true)
 	@SuppressWarnings("unchecked")
 	public List<UsuariosEdit> getlistaEditados() {
-		System.out.println("hola 3");
 		
 		List<UsuariosEdit> result=em.createQuery("select ed from UsuariosEdit ed").getResultList(); 
-		System.out.println("usuarios edit: " + result);
 		return result;
 	}
 

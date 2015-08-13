@@ -10,7 +10,6 @@ import org.encuesta.domain.UsuariosNew;
 import org.encuesta.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,17 +17,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller
+
 @ComponentScan("org.encuesta.service")
+@Controller
 public class MainController {
 	
 	@Autowired
 	public UsuarioService uS;
 	UsuarioDaoImpl udao;
-	//private ShaPasswordEncoder encoder=new ShaPasswordEncoder(256);
 	
-	@RequestMapping(value="/index.htm",method=RequestMethod.GET)
-	public String adminIndex(Model model){
+	@RequestMapping(value="/index.htm")
+	public String adminIndex(){
 		
 		return "index";
 	}
@@ -57,7 +56,6 @@ public class MainController {
 	@RequestMapping(value="/usersDel.htm",method=RequestMethod.GET)
 	public String userDelete(Model model){
 		List<UsuariosDelete> usuarios=uS.getUsuariosDelete();
-		System.out.println("usuarios eliminados: "+usuarios);
 		model.addAttribute("user_eliminados",usuarios);		
 		return "usersDel";
 	}
@@ -65,7 +63,6 @@ public class MainController {
 	@RequestMapping(value="/usersEdit.htm",method=RequestMethod.GET)
 	public String userEdit(Model model){
 		List<UsuariosEdit> usuarios=uS.getUsuariosEdit();
-		System.out.println("usuarios editados: "+usuarios);
 		model.addAttribute("user_editados",usuarios);		
 		return "usersEdit";
 	}
@@ -73,7 +70,6 @@ public class MainController {
 	@RequestMapping(value="/usersNew.htm", method = RequestMethod.GET)
 	public String userNew(Model model){
 		List<UsuariosNew> usuarios=uS.getUsuariosNew();
-		System.out.println("usuarios nuevos: "+usuarios);
 		model.addAttribute("user_nuevos",usuarios);		
 		return "usersNew";
 	}
@@ -104,9 +100,9 @@ public class MainController {
 	
 	@RequestMapping(value="/edit", method= RequestMethod.GET)
 	public String edit(@ModelAttribute("usuario") Usuario usuario, Model model,@RequestParam(value="username")String username){
+		
 		uS.updateUser(usuario);
-		System.out.println("USERNAME EDITADO "+username);
-		System.out.println("USUARIO EDITADO "+usuario);
+		
 		return "redirect:/usersAll.htm";
 	}
 }

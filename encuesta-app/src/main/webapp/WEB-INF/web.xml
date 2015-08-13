@@ -37,7 +37,7 @@
     <url-pattern>*.htm</url-pattern>    
   </servlet-mapping>
   <welcome-file>
-      index.htm
+      login.htm
   </welcome-file>
   <session-config>
       <session-timeout>

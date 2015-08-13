@@ -21,13 +21,13 @@ public class LoginController {
 			@RequestParam(value="logout", required=false)String logout, Model model){
 		String message="";
 		if (error != null) {  
-			   message = "USUARIO o CONTRASEÑA INCORRECTAS";  
+			   message = "USUARIO O CONTRASEÑA INCORRECTAS";  
 			  } else if (logout != null) {  
 			   message = "BIENVENIDO";  
-			   return "principal.htm";
 			  }  
-			 model.addAttribute("message", message);  	
-			 return "login";
+			model.addAttribute("message", message);  	
+			return "login";
+			
 		}
 	@RequestMapping("/principal**")
 	public String getAdminProfile(){

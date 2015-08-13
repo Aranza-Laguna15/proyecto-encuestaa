@@ -38,10 +38,7 @@ public class UsuariosNewImpl implements UsuarioDaoNew{
 	@Transactional(readOnly=true)
 	@SuppressWarnings("unchecked")
 	public List<UsuariosNew> getlistaNuevos() {
-	System.out.println("hola 4");
-		
-		List<UsuariosNew> result=em.createQuery("select ne from UsuariosNew ne").getResultList(); 
-		System.out.println("usuarios nuevos: " + result);
+		List<UsuariosNew> result=em.createQuery("select ne from UsuariosNew ne").getResultList();
 		return result;
 	}
 

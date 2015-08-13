@@ -12,7 +12,6 @@ import javax.persistence.Table;
 public class UsuariosEdit {
 	@Id
 	@Column(name = "id_edicion")
-	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id_edicion;
 	
 	@Column(name="username_ant")

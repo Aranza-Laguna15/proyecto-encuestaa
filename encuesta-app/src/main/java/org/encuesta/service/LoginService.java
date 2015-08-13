@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.encuesta.dao.UsuarioDao;
 import org.encuesta.domain.Usuario;
 import org.encuesta.domain.Usuario_Role;
@@ -48,7 +47,6 @@ public class LoginService implements UserDetailsService{
 
 		Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
 
-		// Build user's authorities
 		for (Usuario_Role userRole : userRoles) {
 			setAuths.add(new SimpleGrantedAuthority(userRole.getRole()));
 		}

@@ -26,7 +26,13 @@
           <a class="navbar-brand" href=<c:url value="index.htm"/>>Encuesta</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-        
+        <ul class="nav navbar-nav navbar-right">
+        <li><c:url var="logoutUrl" value="j_spring_security_logout" />  
+  <form action="${logoutUrl}" method="post">  
+   <input type="submit" value="Salir" class="btn btn-warning"/> <input type="hidden"  
+    name="${_csrf.parameterName}" value="${_csrf.token}" />  
+  </form>  </li>
+      </ul>
         </div><!--/.navbar-collapse -->
         
       </div>

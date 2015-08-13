@@ -18,6 +18,3 @@ public interface UsuarioDao {
 	public Usuario finbyUsername(String username);
 	
 }
-/*public void deleteUsuario(String username);
-public Usuario getUser(String username);*/
-//public void insertUser(String username, String name, String password, boolean enabled);
